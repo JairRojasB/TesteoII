@@ -82,6 +82,7 @@ public class ArrowControll : MonoBehaviour
             }
 
             arrowSpawnObj.fail = false;
+            soundManager.KeySounds(true);
             arrowSpawnObj.NextArrow();
 
             this.GetComponent<ArrowControll>().enabled = false;
@@ -90,6 +91,7 @@ public class ArrowControll : MonoBehaviour
         else
         {
             soundManager.PlaySelecctedListener(false);
+            soundManager.KeySounds(false);
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
 

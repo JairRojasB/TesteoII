@@ -8,25 +8,39 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip[] goodClips, badClips;
 
+    public AudioSource publicReaction;
 
-
-    public AudioSource audioSource;
+    [SerializeField] private AudioClip _correctKey;
+    [SerializeField] private AudioClip _badKey;
+    [SerializeField] private AudioSource _keyResults;
 
     public void PlaySelecctedListener(bool itWasGood)
     {
         if(itWasGood == true)
         {
             int estaGod = Random.Range(0, goodClips.Length);
-            audioSource.clip = goodClips[estaGod];
+            publicReaction.clip = goodClips[estaGod];
         }
         else
         {
             int estaBad = Random.Range(0, badClips.Length);
-            audioSource.clip = badClips[estaBad];
+            publicReaction.clip = badClips[estaBad];
         }
 
-        audioSource.Play();
+        publicReaction.Play();
     }
 
+    public void KeySounds(bool wasItCorrect) 
+    {
+        if (wasItCorrect == true)
+        {
+            _keyResults.clip = _correctKey;
+        }
+        else 
+        {
+            _keyResults.clip = _badKey;
+        }
 
+        _keyResults.Play();
+    }
 }

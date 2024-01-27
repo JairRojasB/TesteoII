@@ -7,15 +7,12 @@ public class ArrowSpawn : MonoBehaviour
 {
     public Image[] images;
 
+    private int nImage = 0;
+
     public bool fail = false;
     private void Start()
     {
-        for (int i = 0; i < images.Length; i++)
-        {
-            ActiveDesactive(false, i);
-        }
-
-        ActiveDesactive(true, 0);
+        ActiveOne(nImage);
     }
 
     public void ActiveDesactive(bool activating, int n)
@@ -30,6 +27,16 @@ public class ArrowSpawn : MonoBehaviour
         }
     }
 
+    private void ActiveOne(int n)
+    {
+        for (int i = 0; i < images.Length; i++)
+        {
+            ActiveDesactive(false, i);
+        }
+
+        ActiveDesactive(true, n);
+    }
+
     private void Update()
     {
         if (fail)
@@ -41,7 +48,8 @@ public class ArrowSpawn : MonoBehaviour
         }
         else
         {
-
+            nImage += 1;
+            ActiveOne(nImage);
         }
     }
 }

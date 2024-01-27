@@ -10,6 +10,11 @@ public class TimerBar : MonoBehaviour
 
     void Start()
     {
+        Starting();
+    }
+
+    public void Starting()
+    {
         slider.maxValue = _maxTime;
         slider.value = _maxTime;
     }

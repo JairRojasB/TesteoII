@@ -18,9 +18,11 @@ public class ArrowSpawn : MonoBehaviour
         {
             images.Add(this.transform.GetChild(i).gameObject);
         }
+    }
 
+     public void StartingGame()
+    {
         InitBehavior();
-
         ActiveOne(nImage);
     }
 

@@ -15,12 +15,6 @@ public class Cortina : MonoBehaviour
         StartCoroutine(AbrirCortina());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator AbrirCortina() 
     {
         yield return new WaitForSeconds(0.5f);

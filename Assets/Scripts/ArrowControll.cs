@@ -17,7 +17,6 @@ public class ArrowControll : MonoBehaviour
     private TimerBar timer;
     private void Start()
     {
-        RandomArrow();
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
         soundManager = GameObject.Find("AudioManager").GetComponent<SoundManager>();
     }

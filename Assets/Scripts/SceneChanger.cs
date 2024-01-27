@@ -12,15 +12,12 @@ public class SceneChanger : MonoBehaviour
 
     [SerializeField] private Image _image;
 
+    public GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (_isSceneStart) { ScreenFadeToTransparent(); } else if (_canStartTransparent == true) { DOTweenModuleUI.DOFade(_image, 0f, 0f); }
-    }
-
-
-    void Update()
-    { 
-
     }
 
     public void ScreenFadeToBlack() 
@@ -30,6 +27,6 @@ public class SceneChanger : MonoBehaviour
 
     public void ScreenFadeToTransparent() 
     {
-        DOTweenModuleUI.DOFade(_image, 0f, 0.7f);
+        DOTweenModuleUI.DOFade(_image, 0f, 0.7f).OnComplete(()=> gameManager.StarThisGame());
     }
 }

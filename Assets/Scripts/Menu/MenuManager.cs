@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -28,8 +29,15 @@ public class MenuManager : MonoBehaviour
     public void Zooming()
     {
         isClicked = true;
-        btnDoor.transform.DOScale(new Vector2(15,60), 1).SetEase(Ease.InFlash);
+        btnDoor.transform.DOScale(new Vector2(42.5f,170), 1).SetEase(Ease.InFlash);
         btnDoor.transform.DOMoveY(btnDoor.transform.position.y + 440, 1).SetEase(Ease.InFlash);
         btnDoor.interactable = false;
+        StartCoroutine(PerformFade());
+    }
+
+    IEnumerator PerformFade()
+    {
+        yield return new WaitForSeconds(1);
+        print("Anacleto");
     }
 }

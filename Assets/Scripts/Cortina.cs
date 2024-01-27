@@ -33,6 +33,6 @@ public class Cortina : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        if (_fade != null) { _fade.ScreenFadeToTransparent(); }
+        if (_fade != null) { _fade.ScreenFadeToTransparent(); } 
     }
 }

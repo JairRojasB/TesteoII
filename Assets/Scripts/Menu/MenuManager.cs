@@ -30,5 +30,6 @@ public class MenuManager : MonoBehaviour
         isClicked = true;
         btnDoor.transform.DOScale(new Vector2(15,60), 1).SetEase(Ease.InFlash);
         btnDoor.transform.DOMoveY(btnDoor.transform.position.y + 440, 1).SetEase(Ease.InFlash);
+        btnDoor.interactable = false;
     }
 }

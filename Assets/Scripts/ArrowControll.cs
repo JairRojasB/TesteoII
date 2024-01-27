@@ -16,6 +16,8 @@ public class ArrowControll : MonoBehaviour
 
     private float speed = 5.0f;
 
+    private bool ñaña;
+
     private void Start()
     {
         RandomArrow();
@@ -72,8 +74,17 @@ public class ArrowControll : MonoBehaviour
         }
     }
 
-    private void AreCorrect()
+    public void ResetArrrow()
+    {   
+        RandomArrow();
+        this.transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 0.04f, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
+        this.gameObject.SetActive(true);
+    }
+
+    private bool AreCorrect()
     {
+        bool estaCuosa = false;
+
         if (AIValue == pressValue)
         {
             arrowSpawnObj.AddN();
@@ -85,22 +96,27 @@ public class ArrowControll : MonoBehaviour
 
             this.GetComponent<ArrowControll>().enabled = false;
             this.gameObject.SetActive(false);
-            
+
+            estaCuosa = true;
             //Llega gente y pasas al siguiente Acto
         }
-        else if (AIValue != pressValue)
+        else
         {
-            Debug.Log(AIValue + "   " + pressValue);
+            estaCuosa = false;
+            Debug.Log("F");
             //arrowSpawnObj.fail = true;
             //DesactivateMe();
             
             //Ocurre evento random y se repite la secuencia de flechas
         }
+
+        ñaña = estaCuosa;
+        return  estaCuosa;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //safeZone = true;
+        
         Debug.Log(AIValue);
     }
 

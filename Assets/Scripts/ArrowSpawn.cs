@@ -33,7 +33,7 @@ public class ArrowSpawn : MonoBehaviour
                 ResetGame();
             }
         }*/
- 
+
         /*if (nImage > images.Count)
         {
             Debug.Log(images.Count);
@@ -47,6 +47,8 @@ public class ArrowSpawn : MonoBehaviour
         {
             images[i].transform.localPosition -= speed * Time.deltaTime * new Vector3(1, 0, 0);
         }*/
+
+        Debug.Log(nImage);
     }
 
     public void NextArrow()
@@ -61,9 +63,16 @@ public class ArrowSpawn : MonoBehaviour
         ActiveArrows(n);
     }
 
-    public void ActiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = true;
+    public void ActiveArrows(int n)
+    {
+        images[n].GetComponent<ArrowControll>().enabled = true;
+        images[n].GetComponent<ArrowControll>().ResetArrrow();
+    }
 
-    public void DesactiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = false;
+    public void DesactiveArrows(int n)
+    {
+        images[n].GetComponent<ArrowControll>().enabled = false;
+    }
 
     public void ResetGame()
     {

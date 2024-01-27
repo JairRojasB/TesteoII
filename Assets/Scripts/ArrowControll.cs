@@ -14,6 +14,8 @@ public class ArrowControll : MonoBehaviour
 
     private bool wasPressed = false;
 
+    private int nValue = 0;
+
     
     private void Start()
     {
@@ -75,6 +77,7 @@ public class ArrowControll : MonoBehaviour
         {
             wasPressed = true;
             arrowSpawnObj.fail = false;
+            arrowSpawnObj.ActiveOne(nValue + 1);
         }
         else if (AIValue != pressValue && wasPressed == false)
         {

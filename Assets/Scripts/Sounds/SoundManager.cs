@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip[] goodClips, badClips;
 
+
+
     public AudioSource audioSource;
 
     public void PlaySelecctedListener(bool itWasGood)
@@ -25,4 +27,6 @@ public class SoundManager : MonoBehaviour
 
         audioSource.Play();
     }
+
+
 }

@@ -8,12 +8,13 @@ public class SceneChanger : MonoBehaviour
 {
     [Header ("Indica si se realiza el Fade al inicio de la escena")]
     [SerializeField] private bool _isSceneStart = false;
+    [SerializeField] private bool _canStartTransparent = false;
 
     [SerializeField] private Image _image;
 
     void Start()
     {
-        if (_isSceneStart) { FadeToTransparent(); } else { DOTweenModuleUI.DOFade(_image, 0f, 0f); }
+        if (_isSceneStart) { ScreenFadeToTransparent(); } else if (_canStartTransparent == true) { DOTweenModuleUI.DOFade(_image, 0f, 0f); }
     }
 
 
@@ -22,12 +23,12 @@ public class SceneChanger : MonoBehaviour
 
     }
 
-    void FadeToBlack() 
+    public void ScreenFadeToBlack() 
     {
         DOTweenModuleUI.DOFade(_image, 1f, 0.7f);
     }
 
-    void FadeToTransparent() 
+    public void ScreenFadeToTransparent() 
     {
         DOTweenModuleUI.DOFade(_image, 0f, 0.7f);
     }

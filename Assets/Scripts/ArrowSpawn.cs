@@ -11,7 +11,7 @@ public class ArrowSpawn : MonoBehaviour
 
     public bool fail = false;
 
-    private float speed = 120.0f;
+    private float speed = 220.0f;
 
     private void Start()
     {
@@ -66,6 +66,7 @@ public class ArrowSpawn : MonoBehaviour
 
         for (int i = 0; i < images.Count - 1; i++)
         {
+            InitBehavior();
             images[i].gameObject.SetActive(true);
             images[i].gameObject.GetComponent<ArrowControll>().RandomArrow();
             ActiveOne(nImage);

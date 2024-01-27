@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
 
     private bool isClicked = false;
 
-   
+    [SerializeField] private RectTransform _bg;
 
     private void Update()
     {
@@ -38,8 +38,11 @@ public class MenuManager : MonoBehaviour
 
         soundManager.PlayBtnPressed();
 
-        btnDoor.transform.DOScale(new Vector2(80,170), 1).SetEase(Ease.InFlash);
-        btnDoor.transform.DOMoveY(btnDoor.transform.position.y *2, 1).SetEase(Ease.InFlash);
+        //btnDoor.transform.DOScale(new Vector2(5,5), 1).SetEase(Ease.InFlash);
+        _bg.DOScale(new Vector2(5, 5), 1).SetEase(Ease.InFlash);
+        //btnDoor.transform.DOMoveY(btnDoor.transform.position.y - 650, 1).SetEase(Ease.InFlash);
+        _bg.DOMoveX(_bg.transform.position.x - 345, 1).SetEase(Ease.InFlash);
+        _bg.DOMoveY(_bg.transform.position.y + 1450, 1).SetEase(Ease.InFlash);
         btnDoor.interactable = false;
         StartCoroutine(PerformFade());
     }

@@ -9,8 +9,6 @@ public class ArrowControll : MonoBehaviour
 
     public ArrowSpawn arrowSpawnObj;
 
-    public BoxCollider2D boxCollider;
-
     private int pressValue;
     private int AIValue;
 
@@ -18,13 +16,10 @@ public class ArrowControll : MonoBehaviour
 
     private bool ñaña;
 
-    private TimerBar timer;
-
     private void Start()
     {
         RandomArrow();
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
-        boxCollider = GameObject.Find("Hitbox").GetComponent<BoxCollider2D>();
     }
 
 
@@ -32,8 +27,6 @@ public class ArrowControll : MonoBehaviour
     void Update()
     {
         PressingButtonsC();
-
-        this.transform.position -= speed * Time.deltaTime * new Vector3(1, 0, 0);
     }
 
     private void PressingButtonsC()
@@ -60,12 +53,6 @@ public class ArrowControll : MonoBehaviour
         }
     }
 
-    private void DesactivateMe()
-    {
-        this.transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 20, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
-        RandomArrow();
-    }
-
     public void RandomArrow()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
@@ -77,29 +64,27 @@ public class ArrowControll : MonoBehaviour
     }
 
     public void ResetArrrow()
-    {   
+    {
         RandomArrow();
-        this.transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 0.04f, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
         this.gameObject.SetActive(true);
     }
 
-    private bool AreCorrect()
+    private void AreCorrect()
     {
-        bool estaCuosa = false;
-
         if (AIValue == pressValue)
         {
             arrowSpawnObj.AddN();
 
-            if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count) arrowSpawnObj.nImage = 0;
+            if (arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
+            {
+                arrowSpawnObj.nImage = 0;
+                arrowSpawnObj.ResetGame();
+            }
 
             arrowSpawnObj.fail = false;
             arrowSpawnObj.NextArrow();
 
             this.GetComponent<ArrowControll>().enabled = false;
-            this.gameObject.SetActive(false);
-
-            estaCuosa = true;
             //Llega gente y pasas al siguiente Acto
         }
         else
@@ -113,19 +98,5 @@ public class ArrowControll : MonoBehaviour
             
             //Ocurre evento random y se repite la secuencia de flechas
         }
-
-        ñaña = estaCuosa;
-        return  estaCuosa;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        //Debug.Log(AIValue);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        PressingButtonsC();
     }
 }

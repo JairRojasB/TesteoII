@@ -23,34 +23,6 @@ public class ArrowSpawn : MonoBehaviour
         ActiveOne(nImage);
     }
 
-    private void Update()
-    {
-        /*if (fail == true)
-        {
-            for (int i = 0; i < images.Count - 1; i++)
-            {
-
-                ResetGame();
-            }
-        }*/
-
-        /*if (nImage > images.Count)
-        {
-            Debug.Log(images.Count);
-            for (int i = 0; i < images.Count - 1; i++)
-            {
-                ResetGame();
-            }
-        }*/
-
-        /*for (int i = 0; i < images.Count; i++)
-        {
-            images[i].transform.localPosition -= speed * Time.deltaTime * new Vector3(1, 0, 0);
-        }*/
-
-        //Debug.Log(nImage);
-    }
-
     public void NextArrow()
     {
         ActiveArrows(nImage);
@@ -63,16 +35,9 @@ public class ArrowSpawn : MonoBehaviour
         ActiveArrows(n);
     }
 
-    public void ActiveArrows(int n)
-    {
-        images[n].GetComponent<ArrowControll>().enabled = true;
-        images[n].GetComponent<ArrowControll>().ResetArrrow();
-    }
+    public void ActiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = true;
 
-    public void DesactiveArrows(int n)
-    {
-        images[n].GetComponent<ArrowControll>().enabled = false;
-    }
+    public void DesactiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = false;
 
     public void ResetGame()
     {
@@ -95,16 +60,9 @@ public class ArrowSpawn : MonoBehaviour
     //Comportamiento inicial
     private void InitBehavior()
     {
-        for (int i = 0; i < images.Count; i++)
+        for (int i = 1; i < images.Count; i++)
         {
-            if (i == 0) {
-                images[i].transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 0.04f, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
-            }
-            else
-            {
-                images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
-            }
-            
+            images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
         }
     }
 }

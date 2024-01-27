@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    float volumen = 0;
+    //float volumen = 0;
 
     public AudioClip[] goodClips, badClips, menuClips;
 
@@ -50,8 +50,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayHover()
     {
-        hoverSource.clip = menuClips[0];
-        hoverSource.Play();
+        if (hoverSource != null) 
+        {
+            hoverSource.clip = menuClips[0];
+            hoverSource.Play();
+        }
     }
 
     public void PlayBtnPressed()

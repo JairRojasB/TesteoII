@@ -23,7 +23,6 @@ public class MenuManager : MonoBehaviour
         {
             btnDoor.GetComponent<Image>().sprite = doorSprites[1];
         }
-        
     }
 
     public void Zooming()

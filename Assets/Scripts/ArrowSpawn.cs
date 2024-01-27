@@ -27,7 +27,7 @@ public class ArrowSpawn : MonoBehaviour
         }
     }
 
-    private void ActiveOne(int n)
+    public void ActiveOne(int n)
     {
         for (int i = 0; i < images.Length; i++)
         {
@@ -45,11 +45,6 @@ public class ArrowSpawn : MonoBehaviour
             {
                 ActiveDesactive(false, i);
             }
-        }
-        else
-        {
-            nImage += 1;
-            ActiveOne(nImage);
         }
     }
 }

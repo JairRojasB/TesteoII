@@ -66,7 +66,7 @@ public class ArrowControll : MonoBehaviour
             arrowSpawnObj.fail = false;
             arrowSpawnObj.nImage += 1;
 
-            if (arrowSpawnObj.nImage >= arrowSpawnObj.images.Length)
+            if (arrowSpawnObj.nImage > arrowSpawnObj.images.Length)
             {
                 arrowSpawnObj.nImage = 0;
             }

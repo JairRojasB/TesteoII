@@ -61,5 +61,7 @@ public class ArrowSpawn : MonoBehaviour
                 ResetArrows();
             }
         }
+
+        Debug.Log(nImage + "    " + images.Length);
     }
 }

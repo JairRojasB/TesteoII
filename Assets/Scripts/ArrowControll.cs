@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ArrowControll : MonoBehaviour
 {
-
     public Sprite[] ArrowIcons;
 
     public ArrowSpawn arrowSpawnObj;
@@ -13,9 +12,7 @@ public class ArrowControll : MonoBehaviour
     private int pressValue;
     private int AIValue;
 
-    private bool wasPressed = false;
-
-    private int nValue = 0;
+    //private bool wasPressed = false;
 
     
     private void Start()
@@ -26,34 +23,14 @@ public class ArrowControll : MonoBehaviour
     public void RandomArrow()
     {
         this.gameObject.GetComponent<Image>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
-        
-        switch (ArrowIcons.Length)
+
+        for (int i = 0; i < ArrowIcons.Length; i++)
         {
-            case 0:
-                if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[0])
-                {
-                    AIValue = 0;
-                }
-                break;
-            case 1:
-                if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[1])
-                {
-                    AIValue = 1;
-                }
-                break;
-            case 2:
-                if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[2])
-                {
-                    AIValue = 2;
-                }
-                break;
-            case 3:
-                if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[3])
-                {
-                    AIValue = 3;
-                }
-                break;
-        }
+            if (this.gameObject.GetComponent<Image>().sprite == ArrowIcons[i])
+            {
+                AIValue = i;
+            }
+        }   
     }
 
     // Update is called once per frame
@@ -78,20 +55,38 @@ public class ArrowControll : MonoBehaviour
             pressValue = 3;
             AreCorrect();
         }
+
+        Debug.Log(arrowSpawnObj.nImage);
     }
 
     private void AreCorrect()
     {
-        if (AIValue == pressValue && wasPressed == false)
-        {
-            wasPressed = true;
+        if (AIValue == pressValue)
+        {         
             arrowSpawnObj.fail = false;
-            arrowSpawnObj.ActiveOne(nValue + 1);
+            arrowSpawnObj.nImage += 1;
+
+            if (arrowSpawnObj.nImage >= arrowSpawnObj.images.Length)
+            {
+                arrowSpawnObj.nImage = 0;
+            }
+
+            arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
+            this.gameObject.SetActive(false);
+            Debug.Log("Correct: " + this.gameObject);
         }
-        else if (AIValue != pressValue && wasPressed == false)
-        {
-            wasPressed = true;
+        else if (AIValue != pressValue)
+        {         
             arrowSpawnObj.fail = true;
+            Debug.Log("false: " + this.gameObject);
         }
     }
+
+    public void ResetControll()
+    {
+        this.gameObject.SetActive(true);
+        arrowSpawnObj.fail = false;
+        arrowSpawnObj.nImage = 0;
+    }
+    
 }

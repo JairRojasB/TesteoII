@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddef617c1508c6b489e2b98a829b4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isSceneStart: 0
+  _isSceneStart: 1
   _isSceneOver: 0
   _image: {fileID: 1316077628}
 --- !u!114 &1316077628

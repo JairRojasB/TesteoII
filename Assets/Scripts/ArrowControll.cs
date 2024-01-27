@@ -77,14 +77,13 @@ public class ArrowControll : MonoBehaviour
 
             if (arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
             {
+                soundManager.PlaySelecctedListener(true);
                 arrowSpawnObj.nImage = 0;
                 arrowSpawnObj.ResetGame();
             }
 
             arrowSpawnObj.fail = false;
             arrowSpawnObj.NextArrow();
-
-            soundManager.PlaySelecctedListener(true);
 
             this.GetComponent<ArrowControll>().enabled = false;
             //Llega gente y pasas al siguiente Acto

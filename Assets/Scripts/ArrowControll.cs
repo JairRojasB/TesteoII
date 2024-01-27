@@ -11,9 +11,6 @@ public class ArrowControll : MonoBehaviour
 
     private int pressValue;
     private int AIValue;
-
-    //private bool wasPressed = false;
-
     
     private void Start()
     {
@@ -43,7 +40,7 @@ public class ArrowControll : MonoBehaviour
         {
             pressValue = 3;
             AreCorrect();
-        }
+        }        
     }
 
     public void RandomArrow()
@@ -60,13 +57,9 @@ public class ArrowControll : MonoBehaviour
     {
         if (AIValue == pressValue)
         {
-            //arrowSpawnObj.fail = false;
             arrowSpawnObj.AddN();
 
-            if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
-            {
-                arrowSpawnObj.nImage = 0;
-            }
+            if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count) arrowSpawnObj.nImage = 0;
 
             arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
             this.gameObject.SetActive(false);

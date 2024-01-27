@@ -10,6 +10,9 @@ public class ArrowSpawn : MonoBehaviour
     public int nImage = 0;
 
     public bool fail = false;
+
+    private float speed = 120.0f;
+
     private void Start()
     {
         for (int i = 0; i < this.transform.childCount; i++)
@@ -17,7 +20,33 @@ public class ArrowSpawn : MonoBehaviour
             images.Add(this.transform.GetChild(i).GetComponent<Image>());
         }
 
+        InitBehavior();
+
         ActiveOne(nImage);
+    }
+
+    private void Update()
+    {
+        if (fail == true)
+        {
+            for (int i = 0; i < images.Count - 1; i++)
+            {
+                ResetArrows();
+            }
+        }
+
+        if (nImage > images.Count)
+        {
+            for (int i = 0; i < images.Count - 1; i++)
+            {
+                ResetArrows();
+            }
+        }
+
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].transform.localPosition -= speed * Time.deltaTime * new Vector3(1, 0, 0);
+        }
     }
 
     public void ActiveOne(int n)
@@ -42,30 +71,23 @@ public class ArrowSpawn : MonoBehaviour
             ActiveOne(nImage);
         }
 
-        fail = false;   
+        fail = false;
     }
 
-
-    private void Update()
-    {
-        if (fail == true)
-        {
-            for (int i = 0; i < images.Count - 1; i++)
-            {
-                ResetArrows();
-            }
-        }
-
-        if (nImage > images.Count)
-        {
-            for (int i = 0; i < images.Count - 1; i++)
-            {
-                ResetArrows();
-            }
-        }
-
-        Debug.Log(nImage + "    " + images.Count);
-    }
-
+    //Subir un elemento de la lista NO TOCAR
     public void AddN() => nImage += 1;
+
+    //Comportamiento inicial
+    private void InitBehavior()
+    {
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].rectTransform.localPosition = new Vector3(Screen.width + images[i].rectTransform.rect.width,0,0);
+        }
+
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].rectTransform.localPosition += new Vector3(300 * i, 0, 0);
+        }
+    }
 }

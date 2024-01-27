@@ -84,9 +84,8 @@ public class ArrowControll : MonoBehaviour
             //Llega gente y pasas al siguiente Acto
         }
         else
-        {            
+        {   
             Debug.Log("FALLO");
-            
             //Ocurre evento random y se repite la secuencia de flechas
         }
     }

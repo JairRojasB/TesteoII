@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening;
 
 public class ArrowSpawn : MonoBehaviour
 {
@@ -62,7 +63,18 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 1; i < images.Count; i++)
         {
+            images[i].transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
+        }
+
+        AnimIcon();
+    }
+
+    private void AnimIcon()
+    {
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].transform.DOScale(1, 0.5f).SetEase(Ease.InOutElastic);
         }
     }
 }

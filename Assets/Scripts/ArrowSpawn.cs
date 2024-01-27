@@ -11,8 +11,6 @@ public class ArrowSpawn : MonoBehaviour
 
     public bool fail = false;
 
-    private float speed = 5.0f;
-
     private void Start()
     {
         for (int i = 0; i < this.transform.childCount; i++)
@@ -27,28 +25,33 @@ public class ArrowSpawn : MonoBehaviour
 
     private void Update()
     {
-        if (fail == true)
+        /*if (fail == true)
         {
             for (int i = 0; i < images.Count - 1; i++)
             {
-                
-                ResetArrows();
+
+                ResetGame();
             }
-        }
+        }*/
  
-        if (nImage > images.Count)
+        /*if (nImage > images.Count)
         {
             Debug.Log(images.Count);
             for (int i = 0; i < images.Count - 1; i++)
             {
-                ResetArrows();
+                ResetGame();
             }
-        }
+        }*/
 
-        for (int i = 0; i < images.Count; i++)
+        /*for (int i = 0; i < images.Count; i++)
         {
             images[i].transform.localPosition -= speed * Time.deltaTime * new Vector3(1, 0, 0);
-        }
+        }*/
+    }
+
+    public void NextArrow()
+    {
+        ActiveArrows(nImage);
     }
 
     public void ActiveOne(int n)
@@ -58,15 +61,15 @@ public class ArrowSpawn : MonoBehaviour
         ActiveArrows(n);
     }
 
-    public void ActiveArrows(int n) => images[n].gameObject.GetComponent<ArrowControll>().enabled = true;
+    public void ActiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = true;
 
-    public void DesactiveArrows(int n) => images[n].gameObject.GetComponent<ArrowControll>().enabled = false;
+    public void DesactiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = false;
 
-    public void ResetArrows()
+    public void ResetGame()
     {
         nImage = 0;
 
-        for (int i = 0; i < images.Count - 1; i++)
+        for (int i = 0; i < images.Count; i++)
         {
             InitBehavior();
             images[i].gameObject.SetActive(true);

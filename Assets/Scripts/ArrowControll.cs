@@ -14,8 +14,8 @@ public class ArrowControll : MonoBehaviour
     private int pressValue;
     private int AIValue;
 
-    private bool safeZone = false;
-    
+    private float speed = 5.0f;
+
     private void Start()
     {
         RandomArrow();
@@ -28,58 +28,37 @@ public class ArrowControll : MonoBehaviour
     void Update()
     {
         PressingButtonsC();
+
+        this.transform.position -= speed * Time.deltaTime * new Vector3(1, 0, 0);
     }
 
     private void PressingButtonsC()
     {
-        if(safeZone == true)
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                pressValue = 0;
-                AreCorrect();
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                pressValue = 1;
-                AreCorrect();
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                pressValue = 2;
-                AreCorrect();
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                pressValue = 3;
-                AreCorrect();
-            }
+            pressValue = 0;
+            AreCorrect();
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                arrowSpawnObj.fail = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                arrowSpawnObj.fail = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                arrowSpawnObj.fail = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                arrowSpawnObj.fail = true;
-            }   
+            pressValue = 1;
+            AreCorrect();
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            pressValue = 2;
+            AreCorrect();
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            pressValue = 3;
+            AreCorrect();
         }
     }
 
     private void DesactivateMe()
     {
         this.transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 20, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
-        safeZone = false;
         RandomArrow();
     }
 
@@ -101,19 +80,18 @@ public class ArrowControll : MonoBehaviour
 
             if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count) arrowSpawnObj.nImage = 0;
 
-            
-
-            arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
-            this.gameObject.SetActive(false);
-
             arrowSpawnObj.fail = false;
+            arrowSpawnObj.NextArrow();
 
+            this.GetComponent<ArrowControll>().enabled = false;
+            this.gameObject.SetActive(false);
+            
             //Llega gente y pasas al siguiente Acto
         }
         else if (AIValue != pressValue)
         {
             Debug.Log(AIValue + "   " + pressValue);
-            arrowSpawnObj.fail = true;
+            //arrowSpawnObj.fail = true;
             //DesactivateMe();
             
             //Ocurre evento random y se repite la secuencia de flechas
@@ -122,7 +100,8 @@ public class ArrowControll : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        safeZone = true;
+        //safeZone = true;
+        Debug.Log(AIValue);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

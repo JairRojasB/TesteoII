@@ -24,6 +24,7 @@ public class ArrowSpawn : MonoBehaviour
         else
         {
             images[n].gameObject.GetComponent<ArrowControll>().enabled = false;
+            images[n].gameObject.GetComponent<ArrowControll>().RandomArrow();
         }
     }
 
@@ -39,12 +40,12 @@ public class ArrowSpawn : MonoBehaviour
 
     private void Update()
     {
-        if (fail)
+        /*if (fail)
         {
             for (int i = 0; i < images.Length; i++)
             {
                 ActiveDesactive(false, i);
             }
-        }
+        }*/
     }
 }

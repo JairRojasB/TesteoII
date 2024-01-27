@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArrowControll : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class ArrowControll : MonoBehaviour
         RandomArrow();
         arrowSpawnObj = GameObject.Find("SpawnArrow").GetComponent<ArrowSpawn>();
     }
-    private void RandomArrow()
+    public void RandomArrow()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
+        this.gameObject.GetComponent<Image>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
         
         switch (ArrowIcons.Length)
         {
@@ -60,20 +61,28 @@ public class ArrowControll : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow)){
             pressValue = 0;
-        }else if (Input.GetKeyDown(KeyCode.RightArrow))
+            AreCorrect();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             pressValue = 1;
+            AreCorrect();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             pressValue = 2;
+            AreCorrect();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             pressValue = 3;
+            AreCorrect();
         }
+    }
 
-        if(AIValue == pressValue && wasPressed == false)
+    private void AreCorrect()
+    {
+        if (AIValue == pressValue && wasPressed == false)
         {
             wasPressed = true;
             arrowSpawnObj.fail = false;

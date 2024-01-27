@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    float volumen = 0;
+
     public AudioClip[] goodClips, badClips;
 
-    public AudioListener audioListener;
+    public AudioSource audioSource;
 
-    private void PlaySelecctedListener()
+    public void PlaySelecctedListener(bool itWasGood)
     {
-        
+        if(itWasGood == true)
+        {
+            int estaGod = Random.Range(0, goodClips.Length);
+            audioSource.clip = goodClips[estaGod];
+        }
+        else
+        {
+            int estaBad = Random.Range(0, badClips.Length);
+            audioSource.clip = badClips[estaBad];
+        }
+
+        audioSource.Play();
     }
 }

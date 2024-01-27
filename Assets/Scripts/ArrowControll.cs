@@ -9,6 +9,8 @@ public class ArrowControll : MonoBehaviour
 
     public ArrowSpawn arrowSpawnObj;
 
+    public SoundManager soundManager;
+
     private int pressValue;
     private int AIValue;
 
@@ -17,6 +19,7 @@ public class ArrowControll : MonoBehaviour
     {
         RandomArrow();
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
+        soundManager = GameObject.Find("AudioManager").GetComponent<SoundManager>();
     }
 
 
@@ -81,11 +84,14 @@ public class ArrowControll : MonoBehaviour
             arrowSpawnObj.fail = false;
             arrowSpawnObj.NextArrow();
 
+            soundManager.PlaySelecctedListener(true);
+
             this.GetComponent<ArrowControll>().enabled = false;
             //Llega gente y pasas al siguiente Acto
         }
         else
         {
+            soundManager.PlaySelecctedListener(false);
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
 

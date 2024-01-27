@@ -20,18 +20,7 @@ public class ArrowControll : MonoBehaviour
         RandomArrow();
         arrowSpawnObj = GameObject.Find("SpawnArrow").GetComponent<ArrowSpawn>();
     }
-    public void RandomArrow()
-    {
-        this.gameObject.GetComponent<Image>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
-
-        for (int i = 0; i < ArrowIcons.Length; i++)
-        {
-            if (this.gameObject.GetComponent<Image>().sprite == ArrowIcons[i])
-            {
-                AIValue = i;
-            }
-        }   
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -55,40 +44,40 @@ public class ArrowControll : MonoBehaviour
             pressValue = 3;
             AreCorrect();
         }
+    }
 
-        Debug.Log(arrowSpawnObj.nImage);
+    public void RandomArrow()
+    {
+        this.gameObject.GetComponent<Image>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
+
+        for (int i = 0; i < ArrowIcons.Length; i++)
+        {
+            if (this.gameObject.GetComponent<Image>().sprite == ArrowIcons[i]) AIValue = i;
+        }
     }
 
     private void AreCorrect()
     {
         if (AIValue == pressValue)
-        {         
-            arrowSpawnObj.fail = false;
-            arrowSpawnObj.nImage += 1;
+        {
+            //arrowSpawnObj.fail = false;
+            arrowSpawnObj.AddN();
 
-            if (arrowSpawnObj.nImage > arrowSpawnObj.images.Length)
+            if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
             {
                 arrowSpawnObj.nImage = 0;
             }
 
             arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
             this.gameObject.SetActive(false);
-            Debug.Log("Correct: " + this.gameObject);
+            
             //Llega gente y pasas al siguiente Acto
         }
         else if (AIValue != pressValue)
         {         
             arrowSpawnObj.fail = true;
-            Debug.Log("false: " + this.gameObject);
+            
             //Ocurre evento random y se repite la secuencia de flechas
         }
-    }
-
-    public void ResetControll()
-    {
-        this.gameObject.SetActive(true);
-        arrowSpawnObj.fail = false;
-        arrowSpawnObj.nImage = 0;
-    }
-    
+    }    
 }

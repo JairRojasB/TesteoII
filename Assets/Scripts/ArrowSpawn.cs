@@ -5,39 +5,44 @@ using UnityEngine;
 
 public class ArrowSpawn : MonoBehaviour
 {
-    public Image[] images;
+    public List<Image> images;
 
     public int nImage = 0;
 
     public bool fail = false;
     private void Start()
     {
-        ActiveOne(0);
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            images.Add(this.transform.GetChild(i).GetComponent<Image>());
+        }
+
+        ActiveOne(nImage);
     }
 
     public void ActiveOne(int n)
     {
-        for (int i = 0; i < images.Length; i++) ActiveDesactive(false, i);
+        for (int i = 0; i < images.Count; i++) DesactiveArrows(i);
 
-        ActiveDesactive(true, n);
+        ActiveArrows(n);
     }
 
-    public void ActiveDesactive(bool activating, int n)
-    {
-        if (activating == true) images[n].gameObject.GetComponent<ArrowControll>().enabled = true;
-        else images[n].gameObject.GetComponent<ArrowControll>().enabled = false;
-    }
+    public void ActiveArrows(int n) => images[n].gameObject.GetComponent<ArrowControll>().enabled = true;
 
-    private void ResetArrows()
+    public void DesactiveArrows(int n) => images[n].gameObject.GetComponent<ArrowControll>().enabled = false;
+
+    public void ResetArrows()
     {
-        for (int i = 0; i < images.Length; i++)
+        nImage = 0;
+
+        for (int i = 0; i < images.Count - 1; i++)
         {
             images[i].gameObject.SetActive(true);
-            ActiveDesactive(true, i);
             images[i].gameObject.GetComponent<ArrowControll>().RandomArrow();
-            images[i].gameObject.GetComponent<ArrowControll>().ResetControll();
-            ActiveOne(0);
+            ActiveOne(nImage);
         }
+
+        fail = false;   
     }
 
 
@@ -45,23 +50,22 @@ public class ArrowSpawn : MonoBehaviour
     {
         if (fail == true)
         {
-            for (int i = 0; i < images.Length; i++)
+            for (int i = 0; i < images.Count - 1; i++)
             {
-                ActiveDesactive(false, i);
                 ResetArrows();
             }
-            nImage = 0;
         }
 
-        if (nImage == images.Length)
+        if (nImage > images.Count)
         {
-            for (int i = 0; i < images.Length; i++)
+            for (int i = 0; i < images.Count - 1; i++)
             {
-                ActiveDesactive(false, i);
                 ResetArrows();
             }
         }
 
-        Debug.Log(nImage + "    " + images.Length);
+        Debug.Log(nImage + "    " + images.Count);
     }
+
+    public void AddN() => nImage += 1;
 }

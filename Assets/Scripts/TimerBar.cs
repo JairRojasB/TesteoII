@@ -17,7 +17,7 @@ public class TimerBar : MonoBehaviour
     void Update()
     {
         //Resta el tiempo reduciendo la barra
-        slider.value = slider.value - Time.deltaTime;
+        slider.value -= Time.deltaTime;
         EndTime();
     }
 

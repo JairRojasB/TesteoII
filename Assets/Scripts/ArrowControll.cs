@@ -88,6 +88,10 @@ public class ArrowControll : MonoBehaviour
         {
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
+
+            arrowSpawnObj.nImage = 0;
+            arrowSpawnObj.ResetGame();
+
             Debug.Log("FALLO");
             //Ocurre evento random y se repite la secuencia de flechas
         }

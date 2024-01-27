@@ -12,6 +12,7 @@ public class ArrowControll : MonoBehaviour
     private int pressValue;
     private int AIValue;
 
+    private TimerBar timer;
     private void Start()
     {
         RandomArrow();
@@ -84,7 +85,9 @@ public class ArrowControll : MonoBehaviour
             //Llega gente y pasas al siguiente Acto
         }
         else
-        {   
+        {
+            timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
+            timer.slider.value -= 1;
             Debug.Log("FALLO");
             //Ocurre evento random y se repite la secuencia de flechas
         }

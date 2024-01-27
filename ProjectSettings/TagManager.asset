@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arrow
   - Zone
+  - TimeBar
   layers:
   - Default
   - TransparentFX

@@ -13,128 +13,83 @@ public class ArrowControll : MonoBehaviour
 
     private int pressValue;
     private int AIValue;
+
+    private bool safeZone = false;
     
     private void Start()
     {
         RandomArrow();
-        arrowSpawnObj = GameObject.Find("SpawnArrow").GetComponent<ArrowSpawn>();
-        boxCollider = GameObject.Find("Collision").GetComponent<BoxCollider2D>();
+        arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
+        boxCollider = GameObject.Find("Hitbox").GetComponent<BoxCollider2D>();
     }
-   
+
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.LeftArrow)){
-            pressValue = 0;
-            AreCorrect();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            pressValue = 1;
-            AreCorrect();
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            pressValue = 2;
-            AreCorrect();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            pressValue = 3;
-            AreCorrect();
-        }*/
-
-        #region detecionConLaColision
-
-        // Obtiene la posición actual del Box Collider 2D en el canvas
-        Vector3 boxColliderPosition = boxCollider.transform.position;
-
-        // Obtiene el tamaño del Box Collider 2D
-        Vector2 boxColliderSize = boxCollider.size;
-
-        // Obtiene todas las imágenes en el canvas
-        Image[] images = FindObjectsOfType<Image>();
-
-        // Verifica si cada imagen se superpone con el Box Collider 2D
-        foreach (Image image in images)
-        {
-            // Obtiene la posición actual de la imagen en el canvas
-            Vector3 imagePosition = image.transform.position;
-
-            // Obtiene el tamaño de la imagen
-            Vector2 imageSize = image.rectTransform.sizeDelta;
-
-            // Verifica si la imagen se superpone con el Box Collider 2D
-            if (imagePosition.x + imageSize.x / 2 > boxColliderPosition.x - boxColliderSize.x / 2 &&
-                imagePosition.x - imageSize.x / 2 < boxColliderPosition.x + boxColliderSize.x / 2 &&
-                imagePosition.y + imageSize.y / 2 > boxColliderPosition.y - boxColliderSize.y / 2 &&
-                imagePosition.y - imageSize.y / 2 < boxColliderPosition.y + boxColliderSize.y / 2)
-            {
-                Debug.Log("La imagen " + image.name + " está dentro del área del Box Collider 2D");
-                PressingButtonsC();
-            }
-            else
-            {
-                PressingButtonsW();
-            }
-        }
-
-        #endregion
+        PressingButtonsC();
     }
 
     private void PressingButtonsC()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if(safeZone == true)
         {
-            pressValue = 0;
-            AreCorrect();
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                pressValue = 0;
+                AreCorrect();
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                pressValue = 1;
+                AreCorrect();
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                pressValue = 2;
+                AreCorrect();
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                pressValue = 3;
+                AreCorrect();
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else
         {
-            pressValue = 1;
-            AreCorrect();
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            pressValue = 2;
-            AreCorrect();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            pressValue = 3;
-            AreCorrect();
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                arrowSpawnObj.fail = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                arrowSpawnObj.fail = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                arrowSpawnObj.fail = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                arrowSpawnObj.fail = true;
+            }   
         }
     }
 
-    private void PressingButtonsW()
+    private void DesactivateMe()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            arrowSpawnObj.fail = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            arrowSpawnObj.fail = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            arrowSpawnObj.fail = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            arrowSpawnObj.fail = true;
-        }
+        this.transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 20, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
+        safeZone = false;
+        RandomArrow();
     }
-
 
     public void RandomArrow()
     {
-        this.gameObject.GetComponent<Image>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
 
         for (int i = 0; i < ArrowIcons.Length; i++)
         {
-            if (this.gameObject.GetComponent<Image>().sprite == ArrowIcons[i]) AIValue = i;
+            if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[i]) AIValue = i;
         }
     }
 
@@ -154,8 +109,15 @@ public class ArrowControll : MonoBehaviour
         else if (AIValue != pressValue)
         {         
             arrowSpawnObj.fail = true;
+            //DesactivateMe();
             
             //Ocurre evento random y se repite la secuencia de flechas
         }
-    }    
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        safeZone = true;
+        PressingButtonsC();
+    }
 }

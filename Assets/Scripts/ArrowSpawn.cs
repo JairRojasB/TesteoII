@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class ArrowSpawn : MonoBehaviour
 {
-    public List<Image> images;
+    public List<GameObject> images;
 
     public int nImage = 0;
 
     public bool fail = false;
 
-    private float speed = 220.0f;
+    private float speed = 5.0f;
 
     private void Start()
     {
         for (int i = 0; i < this.transform.childCount; i++)
         {
-            images.Add(this.transform.GetChild(i).GetComponent<Image>());
+            images.Add(this.transform.GetChild(i).gameObject);
         }
 
         InitBehavior();
@@ -83,12 +83,14 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 0; i < images.Count; i++)
         {
-            images[i].rectTransform.localPosition = new Vector3(Screen.width + images[i].rectTransform.rect.width,((Screen.height/2)-100) *-1 , 0);
-        }
-
-        for (int i = 0; i < images.Count; i++)
-        {
-            images[i].rectTransform.localPosition += new Vector3(300 * i, 0, 0);
+            if (i == 0) {
+                images[i].transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + 0.04f, Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).y + 0.4f);
+            }
+            else
+            {
+                images[i].transform.position += images[i - 1].transform.position + new Vector3(1f, 0);
+            }
+            
         }
     }
 }

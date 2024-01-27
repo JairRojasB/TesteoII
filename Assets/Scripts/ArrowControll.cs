@@ -74,11 +74,13 @@ public class ArrowControll : MonoBehaviour
             arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
             this.gameObject.SetActive(false);
             Debug.Log("Correct: " + this.gameObject);
+            //Llega gente y pasas al siguiente Acto
         }
         else if (AIValue != pressValue)
         {         
             arrowSpawnObj.fail = true;
             Debug.Log("false: " + this.gameObject);
+            //Ocurre evento random y se repite la secuencia de flechas
         }
     }
 

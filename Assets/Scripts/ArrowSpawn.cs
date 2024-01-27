@@ -48,7 +48,7 @@ public class ArrowSpawn : MonoBehaviour
             images[i].transform.localPosition -= speed * Time.deltaTime * new Vector3(1, 0, 0);
         }*/
 
-        Debug.Log(nImage);
+        //Debug.Log(nImage);
     }
 
     public void NextArrow()

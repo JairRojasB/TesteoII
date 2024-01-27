@@ -18,6 +18,8 @@ public class ArrowControll : MonoBehaviour
 
     private bool ñaña;
 
+    private TimerBar timer;
+
     private void Start()
     {
         RandomArrow();
@@ -103,6 +105,8 @@ public class ArrowControll : MonoBehaviour
         else
         {
             estaCuosa = false;
+            timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
+            timer.slider.value -= 1;
             Debug.Log("F");
             //arrowSpawnObj.fail = true;
             //DesactivateMe();
@@ -117,7 +121,7 @@ public class ArrowControll : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        Debug.Log(AIValue);
+        //Debug.Log(AIValue);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

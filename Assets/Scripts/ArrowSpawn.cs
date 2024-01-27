@@ -83,7 +83,7 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 0; i < images.Count; i++)
         {
-            images[i].rectTransform.localPosition = new Vector3(Screen.width + images[i].rectTransform.rect.width,0,0);
+            images[i].rectTransform.localPosition = new Vector3(Screen.width + images[i].rectTransform.rect.width,((Screen.height/2)-100) *-1 , 0);
         }
 
         for (int i = 0; i < images.Count; i++)

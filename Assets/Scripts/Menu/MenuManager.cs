@@ -37,6 +37,6 @@ public class MenuManager : MonoBehaviour
     IEnumerator PerformFade()
     {
         yield return new WaitForSeconds(1);
-        print("Anacleto");
+        SceneManager.LoadScene("Game");
     }
 }

@@ -549,6 +549,7 @@ MonoBehaviour:
   - {fileID: 1943750348}
   - {fileID: 1190282242}
   - {fileID: 467715918}
+  nImage: 0
   fail: 0
 --- !u!1001 &1190282240
 PrefabInstance:
@@ -648,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 5143748131287373132, guid: a8b08db4804eaec48aab93a8b19da6ab, type: 3}
       propertyPath: m_Name
       value: Image (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143748131287373132, guid: a8b08db4804eaec48aab93a8b19da6ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8b08db4804eaec48aab93a8b19da6ab, type: 3}

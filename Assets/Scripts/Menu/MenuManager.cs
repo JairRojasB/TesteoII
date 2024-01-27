@@ -29,8 +29,8 @@ public class MenuManager : MonoBehaviour
     public void Zooming()
     {
         isClicked = true;
-        btnDoor.transform.DOScale(new Vector2(42.5f,170), 1).SetEase(Ease.InFlash);
-        btnDoor.transform.DOMoveY(btnDoor.transform.position.y + 440, 1).SetEase(Ease.InFlash);
+        btnDoor.transform.DOScale(new Vector2(80,170), 1).SetEase(Ease.InFlash);
+        btnDoor.transform.DOMoveY(btnDoor.transform.position.y *2, 1).SetEase(Ease.InFlash);
         btnDoor.interactable = false;
         StartCoroutine(PerformFade());
     }

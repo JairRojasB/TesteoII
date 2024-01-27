@@ -27,6 +27,6 @@ public class SceneChanger : MonoBehaviour
 
     public void ScreenFadeToTransparent() 
     {
-        DOTweenModuleUI.DOFade(_image, 0f, 0.7f).OnComplete(()=> gameManager.StarThisGame());
+        DOTweenModuleUI.DOFade(_image, 0f, 0.7f).OnComplete(()=> { gameManager.StarThisGame(true); });
     }
 }

@@ -12,15 +12,16 @@ public class ArrowSpawn : MonoBehaviour
 
     public bool fail = false;
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < this.transform.childCount; i++)
         {
             images.Add(this.transform.GetChild(i).gameObject);
         }
     }
+    private void Start() => StartingGame();
 
-     public void StartingGame()
+    public void StartingGame()
     {
         InitBehavior();
         ActiveOne(nImage);
@@ -65,6 +66,7 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 1; i < images.Count; i++)
         {
+            images[i].GetComponent<ArrowControll>().InitState();
             images[i].transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
         }
@@ -77,6 +79,7 @@ public class ArrowSpawn : MonoBehaviour
         for (int i = 0; i < images.Count; i++)
         {
             images[i].transform.DOScale(1, 0.5f).SetEase(Ease.InOutElastic);
+            images[i].GetComponent<ArrowControll>().ChangeState();
         }
     }
 }

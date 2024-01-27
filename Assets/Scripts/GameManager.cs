@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
 
-    public void StarThisGame()
+    private void Awake() => StarThisGame(false);
+
+    public void StarThisGame(bool esta)
     {
-        timer.Starting();
-        arrowSpawn.StartingGame();
+        timer.gameObject.SetActive(esta);
+        arrowSpawn.gameObject.SetActive(esta);
     }
 }

@@ -8,10 +8,7 @@ public class TimerBar : MonoBehaviour
     public Slider slider;
     [SerializeField] private int _maxTime;
 
-    void Start()
-    {
-        Starting();
-    }
+    void Start() => Starting();
 
     public void Starting()
     {

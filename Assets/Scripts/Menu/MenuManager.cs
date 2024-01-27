@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private SoundManager soundManager;
+
     public Button btnDoor;
 
     public Sprite[] doorSprites;
 
     private bool isClicked = false;
-   public void ChangeSprite(int n)
-    {
-        btnDoor.GetComponent<Image>().sprite = doorSprites[n];
-    }
+
+   
 
     private void Update()
     {
@@ -25,9 +25,19 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
+    public void ChangeSprite(int n)
+    {
+        soundManager.PlayHover();
+        btnDoor.GetComponent<Image>().sprite = doorSprites[n];
+    }
+
     public void Zooming()
     {
         isClicked = true;
+
+        soundManager.PlayBtnPressed();
+
         btnDoor.transform.DOScale(new Vector2(80,170), 1).SetEase(Ease.InFlash);
         btnDoor.transform.DOMoveY(btnDoor.transform.position.y *2, 1).SetEase(Ease.InFlash);
         btnDoor.interactable = false;

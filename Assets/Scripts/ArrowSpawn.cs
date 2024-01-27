@@ -31,12 +31,14 @@ public class ArrowSpawn : MonoBehaviour
         {
             for (int i = 0; i < images.Count - 1; i++)
             {
+                
                 ResetArrows();
             }
         }
-
+ 
         if (nImage > images.Count)
         {
+            Debug.Log(images.Count);
             for (int i = 0; i < images.Count - 1; i++)
             {
                 ResetArrows();
@@ -88,7 +90,7 @@ public class ArrowSpawn : MonoBehaviour
             }
             else
             {
-                images[i].transform.position += images[i - 1].transform.position + new Vector3(1f, 0);
+                images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
             }
             
         }

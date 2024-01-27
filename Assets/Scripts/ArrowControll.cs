@@ -101,13 +101,18 @@ public class ArrowControll : MonoBehaviour
 
             if(arrowSpawnObj.nImage == arrowSpawnObj.images.Count) arrowSpawnObj.nImage = 0;
 
+            
+
             arrowSpawnObj.ActiveOne(arrowSpawnObj.nImage);
             this.gameObject.SetActive(false);
-            
+
+            arrowSpawnObj.fail = false;
+
             //Llega gente y pasas al siguiente Acto
         }
         else if (AIValue != pressValue)
-        {         
+        {
+            Debug.Log(AIValue + "   " + pressValue);
             arrowSpawnObj.fail = true;
             //DesactivateMe();
             
@@ -115,9 +120,13 @@ public class ArrowControll : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         safeZone = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         PressingButtonsC();
     }
 }

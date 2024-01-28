@@ -5,13 +5,26 @@ using UnityEngine;
 public class GokuController : MonoBehaviour
 {
     public GameObject gokuSpawn;
+    [SerializeField] private Animator _gokuAnim;
 
     private void Start()
     {
-        InitAnimation();
+        _gokuAnim = gameObject.GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        if (_gokuAnim != null) 
+        {
+            if(Input.GetKeyDown(KeyCode.G)) 
+            {
+                InitAnimation();
+            }
+        }
+    }
+
     private void InitAnimation()
     {
-        //this.gameObject.GetComponent<Animator>().
+        _gokuAnim.SetInteger("isTp", 1);
     }
 }

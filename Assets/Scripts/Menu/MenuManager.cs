@@ -39,8 +39,6 @@ public class MenuManager : MonoBehaviour
         ShowVolum(false);
     }
 
-
-
     private void Update()
     {
         timein -= Time.deltaTime;

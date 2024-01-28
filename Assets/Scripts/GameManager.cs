@@ -6,11 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField] private TextMeshProUGUI _txtScore;
 
     [Space]
     [SerializeField] private GameObject corgiPrefb;
     [SerializeField] private GameObject kapibaraPrefb;
+
+    public PermaData permaData;
 
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
         timer.d = 0;
         timer.gameObject.SetActive(true);
         arrowSpawn.gameObject.SetActive(true);
+        
     }
 
     public void ShakeCamera()
@@ -111,6 +115,7 @@ public class GameManager : MonoBehaviour
             DOTween.KillAll();
             //cortina.CloseTelon();
             StartCoroutine(ShowingText(exito1));
+            PlayerPrefs.SetInt("level", 3);
             endThis = 1;
         }
     }
@@ -127,6 +132,7 @@ public class GameManager : MonoBehaviour
             DOTween.KillAll();
             //cortina.CloseTelon();
             StartCoroutine(ShowingText(lose1));
+            PlayerPrefs.SetInt("level", 2);
             endThis = 1;
         }
     }

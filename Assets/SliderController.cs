@@ -15,6 +15,6 @@ public class SliderController : MonoBehaviour
 
     private void Update()
     {
-        PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
+        if(this.transform.GetChild(0).gameObject.activeInHierarchy) PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
     }
 }

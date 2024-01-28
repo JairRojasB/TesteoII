@@ -8,7 +8,11 @@ public class ArrowSpawn : MonoBehaviour
 {
     public List<GameObject> images;
 
+    public GameObject arrowPrefb;
+
     public int nImage = 0;
+
+    //public int MaxArrows = 10;
 
     public bool fail = false;
 
@@ -16,7 +20,17 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 0; i < this.transform.childCount; i++)
         {
-            images.Add(this.transform.GetChild(i).gameObject);
+            if(this.transform.GetChild(i) == null)
+            {
+                GameObject temp = Instantiate(arrowPrefb, transform);
+                images.Add(this.transform.GetChild(i).gameObject);
+
+            }
+            else
+            {
+                images.Add(this.transform.GetChild(i).gameObject);
+            }
+            
         }
     }
     private void Start() => StartingGame();

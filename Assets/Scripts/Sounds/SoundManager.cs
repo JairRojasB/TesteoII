@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource publicReaction;
 
+    public bool shutUpSusi = false;
+
     [Space]
     [SerializeField] private AudioSource peopleSource;
     [SerializeField] private AudioSource randomSource;
@@ -26,6 +28,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource hoverSource;
     [SerializeField] private AudioSource pressedSource;
 
+    [Space]
+    [SerializeField] private AudioSource susiSource;
+    [SerializeField] private AudioClip[] susiClips;
 
     [Space]
     public List<AudioSource> audioSources;
@@ -38,10 +43,26 @@ public class SoundManager : MonoBehaviour
     {
         DetectAllVolum();
         slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumenData");
+        
     }
     private void Update()
     {
         ChangeAllVolum();
+    }
+
+    IEnumerator PlaySusi()
+    {
+        SusiRandomVoice();
+        yield return new WaitForSeconds(5);
+        PlaySusi();
+    }
+
+    private void SusiRandomVoice()
+    {
+        int esta = Random.Range(0, susiClips.Length);
+
+        susiSource.clip = susiClips[esta];
+        susiSource.Play();
     }
 
     public void PlaySelecctedListener(bool itWasGood)

@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     private float volumen;
 
-    private SliderController slider;
+    private Slider slider;
 
     public AudioClip[] goodClips, badClips, menuClips, random;
 
@@ -26,9 +26,22 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource hoverSource;
     [SerializeField] private AudioSource pressedSource;
 
+
+    [Space]
+    public List<AudioSource> audioSources;
     private void Awake()
     {
-        slider = GameObject.FindObjectOfType<SliderController>();
+        slider = GameObject.FindObjectOfType<Slider>();
+    }
+
+    private void Start()
+    {
+        DetectAllVolum();
+        slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumenData");
+    }
+    private void Update()
+    {
+        ChangeAllVolum();
     }
 
     public void PlaySelecctedListener(bool itWasGood)
@@ -73,4 +86,25 @@ public class SoundManager : MonoBehaviour
         pressedSource.Play();
         pressedSource.volume = PlayerPrefs.GetFloat("volumenData");
     }
+
+    private void DetectAllVolum()
+    {
+        audioSources.Clear();
+
+        AudioSource[] allAudioSources = GameObject.FindObjectsOfType<AudioSource>();
+
+        for (int i = 0; i < allAudioSources.Length; i++)
+        {
+            audioSources.Add(allAudioSources[i]);
+        }
+    }
+
+    public void ChangeAllVolum()
+    {
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            audioSources[i].volume = PlayerPrefs.GetFloat("volumenData");
+        }
+    }
+
 }

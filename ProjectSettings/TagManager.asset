@@ -8,6 +8,7 @@ TagManager:
   - Zone
   - TimeBar
   - SequenceCounter
+  - Susi
   layers:
   - Default
   - TransparentFX

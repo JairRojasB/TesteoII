@@ -855,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gokuSpawn: {fileID: 119044787}
   _gokuAnim: {fileID: 0}
-  _willHeYeet: 0
+  _willHeYeet: 1
 --- !u!1 &279710450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,7 +3727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get 400 Points!
+  m_text: Get 500 Points!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b567e93c8b8c4eb1289768ea65e30, type: 2}
   m_sharedMaterial: {fileID: -3626326461652935998, guid: 316b567e93c8b8c4eb1289768ea65e30, type: 2}
@@ -4996,7 +4996,6 @@ GameObject:
   - component: {fileID: 2019223039}
   - component: {fileID: 2019223038}
   - component: {fileID: 2019223037}
-  - component: {fileID: 2019223040}
   m_Layer: 0
   m_Name: Susi
   m_TagString: Susi
@@ -5070,7 +5069,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.26, y: 1.91}
+  m_Size: {x: 3.56, y: 3.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5091,20 +5090,6 @@ Transform:
   m_Father: {fileID: 2030926284}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2019223040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019223036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0935ca3773641c144a27eb4a658814b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _susiAnim: {fileID: 2019223037}
-  _willSheYeet: 1
 --- !u!1 &2030926283
 GameObject:
   m_ObjectHideFlags: 0

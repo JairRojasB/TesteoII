@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Game1")
         {
             SceneManager.LoadScene("Game2");
-        }(SceneManager.GetActiveScene().name == "Game2"){
+        }else if(SceneManager.GetActiveScene().name == "Game2"){
             SceneManager.LoadScene("Menu");
         }
     }

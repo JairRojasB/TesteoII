@@ -1193,11 +1193,11 @@ PrefabInstance:
       objectReference: {fileID: 1761736744}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: _maxTime
-      value: 25
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: scoreGoal
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: gameManager
@@ -5174,7 +5174,6 @@ MonoBehaviour:
   _txtScore: {fileID: 1239612338}
   corgiPrefb: {fileID: 7215182964077530735, guid: 3c54499160656514cbd07dfefd850679, type: 3}
   kapibaraPrefb: {fileID: 6667245329307388349, guid: 2924a6f29ed15ae4aa7dc4c6c438603a, type: 3}
-  permaData: {fileID: 111142463168708339}
   timer: {fileID: 1824360451}
   arrowSpawn: {fileID: 1882916724}
   people:
@@ -5396,17 +5395,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddb1269bf914a0a4aa1a9bc24c76083a, type: 3}
---- !u!114 &111142463168708339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 111142463255283538, guid: ddb1269bf914a0a4aa1a9bc24c76083a, type: 3}
-  m_PrefabInstance: {fileID: 111142463168708338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c4bfd6cd91e8b746ac6e5ce1f42a102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7651793423247719061
 PrefabInstance:
   m_ObjectHideFlags: 0

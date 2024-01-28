@@ -4,6 +4,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _txtScore;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
     private string lose1;
     private string exito1;
 
+    public Animator genteAnim;
+    public bool fullPublic = false;
+    public int maxScore;
+
     private void Awake() {
         StarThisGame(false);
 
@@ -51,6 +56,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameObject.FindGameObjectWithTag("TimeBar") != null) 
+        {
+            maxScore = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>().scoreGoal;
+        }
+                
+        if (score >= 150) 
+        {
+            genteAnim.SetBool("MidPublic", true);
+        }
+        else
+        {
+            genteAnim.SetBool("MidPublic", false);
+        }
+
+        if (score >= maxScore)
+        {
+            genteAnim.SetBool("FullPublic", true);
+        }
+        else
+        {
+            genteAnim.SetBool("FullPublic", false);
+        }
+
         if (Camera.main.transform.position != new Vector3(0, 0, -10))
         {
             Camera.main.transform.position = new Vector3(0, 0, -10);

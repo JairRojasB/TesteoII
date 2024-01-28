@@ -11,6 +11,8 @@ public class TimerBar : MonoBehaviour
     public GameManager gameManager;
 
     public Image fill;
+
+    private bool isTwennig = false;
     void Start() => Starting();
 
     public void Starting()
@@ -47,7 +49,12 @@ public class TimerBar : MonoBehaviour
             if(gameManager.score < 0)
             {
                 Debug.Log("Perdiste");
-                gameManager.FurriusPeople();
+                if (isTwennig == false)
+                {
+                    gameManager.FurriusPeople();
+                    isTwennig = true;
+                }
+                
             }
             else
             {

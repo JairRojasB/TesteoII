@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void FurriusPeople()
     {
+        DOTween.KillAll();
         cortina.CloseTelon();
         StartCoroutine(ShowingText());
     }
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
         TxtScore.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(4);
+        yield  return new WaitForSeconds(4);
 
         TxtMessage.gameObject.SetActive(true);
         TxtScore.gameObject.SetActive(true);

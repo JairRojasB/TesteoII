@@ -1192,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 1761736744}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: _maxTime
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: gameManager
@@ -4769,7 +4769,6 @@ MonoBehaviour:
   _txtScore: {fileID: 1239612338}
   timer: {fileID: 1824360451}
   arrowSpawn: {fileID: 1882916724}
-  btnBack: {fileID: 1276867878}
   people:
   - {fileID: 230482691}
   - {fileID: 2019223036}
@@ -4780,6 +4779,7 @@ MonoBehaviour:
   score: 0
   TxtMessage: {fileID: 2073868970}
   TxtScore: {fileID: 975583415}
+  btnBack: {fileID: 1276867878}
 --- !u!1 &2073868968
 GameObject:
   m_ObjectHideFlags: 0

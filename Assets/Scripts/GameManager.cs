@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
     public void ReloadGame()
     {
         SceneManager.LoadScene("Game");
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour
         btnBack.gameObject.SetActive(true);
 
         TxtScore.text = score.ToString();
-        TxtMessage.text = "You know what!, it's the game's foul";
+        TxtMessage.text = "You know what!, it's the game's fault";
 
         TxtMessage.DOFade(1, 1);
         TxtScore.DOFade(1, 1);

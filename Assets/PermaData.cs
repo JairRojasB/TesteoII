@@ -27,13 +27,13 @@ public class PermaData : MonoBehaviour
             case 1:
                 //malo1
                 timerBar.SetMaxTime(25);
-                timerBar.scoreGoal = 300;
+                timerBar.scoreGoal = 250;
                 //gameManager.TxtMessage.text = "Este es tu #1er intento. Trata de no cagarla";
                 break;
             case 2:
                 //bueno
-                timerBar.SetMaxTime(25);
-                timerBar.scoreGoal = 300;
+                timerBar.SetMaxTime(30);
+                timerBar.scoreGoal = 400;
                 //gameManager.TxtMessage.text = "Este es tu intento #1. Encuentra tu dignidad y úsala"; 
                 break;
             case 3:

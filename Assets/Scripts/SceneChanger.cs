@@ -29,4 +29,12 @@ public class SceneChanger : MonoBehaviour
     {
         DOTweenModuleUI.DOFade(_image, 0f, 0.7f).OnComplete(()=> { gameManager.StarThisGame(true); });
     }
+
+    public void SceenFaceToSolid()
+    {
+        DOTweenModuleUI.DOFade(_image, 1f, 0.7f).OnComplete(() => { 
+            gameManager.StarThisGame(false);
+            DOTween.KillAll();  
+        });
+    }
 }

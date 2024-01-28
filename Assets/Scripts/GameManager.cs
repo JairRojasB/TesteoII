@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _txtScore;
@@ -12,8 +13,12 @@ public class GameManager : MonoBehaviour
     public ArrowSpawn arrowSpawn;
 
     public GameObject[] people;
+    public Cortina cortina;
 
     public int score;
+
+    public TextMeshProUGUI TxtMessage, TxtScore;
+    public Button btnBack;  
 
     private void Awake() => StarThisGame(false);
 
@@ -28,8 +33,19 @@ public class GameManager : MonoBehaviour
 
     public void StarThisGame(bool esta)
     {
+        TxtMessage.gameObject.SetActive(false);
+        TxtScore.gameObject.SetActive(false);
+        btnBack.gameObject.SetActive(false);
+
         timer.gameObject.SetActive(esta);
         arrowSpawn.gameObject.SetActive(esta);
+    }
+
+    public void RestarGame()
+    {
+        score = 0;
+        timer.gameObject.SetActive(true);
+        arrowSpawn.gameObject.SetActive(true);
     }
 
     public void ShakeCamera()
@@ -64,6 +80,33 @@ public class GameManager : MonoBehaviour
 
     public void FurriusPeople()
     {
+        cortina.CloseTelon();
+        StartCoroutine(ShowingText());
+    }
 
+    public void ReloadGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    IEnumerator ShowingText()
+    {
+        TxtMessage.DOFade(0, 0.1f);
+        TxtScore.DOFade(0, 0.1f);
+        TxtMessage.gameObject.SetActive(false);
+        TxtScore.gameObject.SetActive(false);
+        btnBack.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(4);
+
+        TxtMessage.gameObject.SetActive(true);
+        TxtScore.gameObject.SetActive(true);
+        btnBack.gameObject.SetActive(true);
+
+        TxtScore.text = score.ToString();
+        TxtMessage.text = "You know what!, it's the game's foul";
+
+        TxtMessage.DOFade(1, 1);
+        TxtScore.DOFade(1, 1);
     }
 }

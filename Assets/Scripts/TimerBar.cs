@@ -47,6 +47,7 @@ public class TimerBar : MonoBehaviour
             if(gameManager.score < 0)
             {
                 Debug.Log("Perdiste");
+                gameManager.FurriusPeople();
             }
             else
             {

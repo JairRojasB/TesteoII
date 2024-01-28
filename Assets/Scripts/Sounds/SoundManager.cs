@@ -33,6 +33,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip[] susiClips;
 
     [Space]
+    [SerializeField] private AudioSource[] clapsSources;
+    [SerializeField] private AudioClip[] clapsClips;
+
+    [Space]
     public List<AudioSource> audioSources;
     private void Awake()
     {
@@ -55,6 +59,15 @@ public class SoundManager : MonoBehaviour
         SusiRandomVoice();
         yield return new WaitForSeconds(5);
         PlaySusi();
+    }
+
+    public void PlayClaps()
+    {
+        for (int i = 0; i < clapsSources.Length; i++)
+        {
+            clapsSources[i].clip = clapsClips[i];
+            clapsSources[i].Play();
+        }
     }
 
     private void SusiRandomVoice()

@@ -56,7 +56,7 @@ public class TimerBar : MonoBehaviour
             else
             {
                 gameManager.HappyPublic();
-                soundManager.PlaySelecctedListener(true);
+                soundManager.PlayClaps();
                 Debug.Log("Pasaste");
             }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo

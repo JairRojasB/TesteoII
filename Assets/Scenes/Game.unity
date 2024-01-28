@@ -979,7 +979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &293584879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,11 +1305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596309, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596309, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596314, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_Color.b
@@ -1574,7 +1574,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: adf2d8f14000c844c973b780569e5fb0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2123,7 +2123,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 6b66d1749b7b4804bbacc1d0a0077cd4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2846,7 +2846,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 11dc8f7e22b696c4d8c038310f57260e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3874,7 +3874,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: e0231ded0418e0f4eb8e3f538ca66b03, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5168,6 +5168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _txtScore: {fileID: 1239612338}
+  corgiPrefb: {fileID: 7215182964077530735, guid: 3c54499160656514cbd07dfefd850679, type: 3}
+  kapibaraPrefb: {fileID: 6667245329307388349, guid: 2924a6f29ed15ae4aa7dc4c6c438603a, type: 3}
   timer: {fileID: 1824360451}
   arrowSpawn: {fileID: 1882916724}
   people:
@@ -5177,6 +5179,10 @@ MonoBehaviour:
   - {fileID: 279710450}
   - {fileID: 197389257}
   cortina: {fileID: 1610113619}
+  lights:
+  - {fileID: 645733823}
+  - {fileID: 1380659669}
+  - {fileID: 978743674}
   score: 0
   endThis: 0
   TxtMessage: {fileID: 2073868970}
@@ -5417,6 +5423,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1913240102}
+    - target: {fileID: 8645132965967388376, guid: 8b0b74b6ddca8fd41abad8077f39a0d5, type: 3}
+      propertyPath: sliderPrefb
+      value: 
+      objectReference: {fileID: 923795787061025643, guid: b524d662bc12ec94682fd7733d87b36a, type: 3}
     - target: {fileID: 8645132965967388376, guid: 8b0b74b6ddca8fd41abad8077f39a0d5, type: 3}
       propertyPath: publicReaction
       value: 

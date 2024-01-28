@@ -54,9 +54,18 @@ public class ArrowSpawn : MonoBehaviour
         ActiveArrows(n);
     }
 
-    public void ActiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = true;
+    public void ActiveArrows(int n)
+    {
+        images[n].GetComponent<ArrowControll>().enabled = true;
+        images[n].GetComponent<ArrowControll>().ChangeState();
+    }
 
-    public void DesactiveArrows(int n) => images[n].GetComponent<ArrowControll>().enabled = false;
+    public void DesactiveArrows(int n) 
+    {
+        images[n].GetComponent<ArrowControll>().InitState();
+        images[n].GetComponent<ArrowControll>().enabled = false;
+
+    }
 
     public void ResetGame()
     {

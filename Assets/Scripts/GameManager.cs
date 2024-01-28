@@ -9,21 +9,40 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _txtScore;
 
+    [Space]
+    [SerializeField] private GameObject corgiPrefb;
+    [SerializeField] private GameObject kapibaraPrefb;
+
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
 
     public GameObject[] people;
     public Cortina cortina;
+    
+    [Space]
+    public SpriteRenderer[] lights;
 
     public int score;
     public int endThis = 0;
 
     public TextMeshProUGUI TxtMessage, TxtScore;
-    public Button btnBack;  
+    public Button btnBack;
 
-    private void Awake() => StarThisGame(false);
+    private string lose1, lose2;
+    private string exito1;
+
+    private void Awake() {
+        StarThisGame(false);
+
+        lose1 = "Este es tu #1er intento. Trata de no cagarla";
+        lose2 = "Intento #2. Ya no tiene dignidad, basura. A ver si al menos usas tu odio";
+
+        exito1 = "Este es tu intento #1. Encuentra tu dignidad y úsala";
+    }
     private void Start()
     {
+        Instantiate(kapibaraPrefb, new Vector3(0, 0, 0), Quaternion.identity);
+
         TxtMessage.DOFade(0, 0.1f);
         TxtScore.DOFade(0, 0.1f);
         TxtMessage.gameObject.SetActive(false);
@@ -38,7 +57,7 @@ public class GameManager : MonoBehaviour
             Camera.main.transform.position = new Vector3(0, 0, -10);
         }
         else return;
-    }
+    }    
 
     public void StarThisGame(bool esta)
     {
@@ -48,6 +67,11 @@ public class GameManager : MonoBehaviour
 
         timer.gameObject.SetActive(esta);
         arrowSpawn.gameObject.SetActive(esta);
+
+        /*for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].DOFade(0.43f, 0.5f).OnComplete(() => { lights[i].DOFade(0.57f, 0.5f); }).SetLoops(15);
+        }*/
     }
 
     public void RestarGame()
@@ -86,8 +110,8 @@ public class GameManager : MonoBehaviour
         if(endThis == 0)
         {
             DOTween.KillAll();
-            //cortina.CloseTelon();
-            StartCoroutine(ShowingText("Si ♥"));
+            cortina.CloseTelon();
+            StartCoroutine(ShowingText(exito1));
             endThis = 1;
         }
     }
@@ -103,12 +127,10 @@ public class GameManager : MonoBehaviour
         {
             DOTween.KillAll();
             //cortina.CloseTelon();
-            StartCoroutine(ShowingText("You know what!, it's the game's fault"));
+            StartCoroutine(ShowingText(lose1));
             endThis = 1;
         }
     }
-
-
 
     public void ReloadGame()
     {

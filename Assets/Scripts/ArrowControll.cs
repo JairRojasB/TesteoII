@@ -54,7 +54,6 @@ public class ArrowControll : MonoBehaviour
         {
             case ARROWSTATE.IDLE:
 
-                break;
             case ARROWSTATE.PRESSING:
 
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -79,6 +78,7 @@ public class ArrowControll : MonoBehaviour
                 }
                 break;
             default:
+                state = ARROWSTATE.IDLE;
                 break;
         }
      

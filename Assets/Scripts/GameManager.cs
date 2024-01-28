@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         if(endThis == 0)
         {
             DOTween.KillAll();
-            cortina.CloseTelon();
+            //cortina.CloseTelon();
             StartCoroutine(ShowingText(exito1));
             endThis = 1;
         }

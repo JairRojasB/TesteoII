@@ -58,6 +58,7 @@ public class TimerBar : MonoBehaviour
             }
             else
             {
+                gameManager.HappyPublic();
                 Debug.Log("Pasaste");
             }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo

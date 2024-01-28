@@ -168,20 +168,12 @@ public class GameManager : MonoBehaviour
 
     public void ReloadGame()
     {
-        switch (PlayerPrefs.GetInt("level"))
+        if(SceneManager.GetActiveScene().name == "Game1")
         {
-            case 1:
-                PlayerPrefs.SetInt("level", 3);
-                break;
-            case 2:
-                PlayerPrefs.SetInt("level", 3);
-                break;
-            default:
-                SceneManager.LoadScene("Menu");
-                break;
+            SceneManager.LoadScene("Game2");
+        }(SceneManager.GetActiveScene().name == "Game2"){
+            SceneManager.LoadScene("Menu");
         }
-        
-        SceneManager.LoadScene("Game");
     }
 
     IEnumerator ShowingText()

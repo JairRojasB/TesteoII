@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Cortina cortina;
 
     public int score;
+    public int endThis = 0;
 
     public TextMeshProUGUI TxtMessage, TxtScore;
     public Button btnBack;  
@@ -76,9 +77,13 @@ public class GameManager : MonoBehaviour
 
     public void FurriusPeople()
     {
-        DOTween.KillAll();
-        cortina.CloseTelon();
-        StartCoroutine(ShowingText());
+        if(endThis == 0)
+        {
+            DOTween.KillAll();
+            cortina.CloseTelon();
+            StartCoroutine(ShowingText());
+            endThis = 1;
+        }
     }
 
     public void ReloadGame()
@@ -94,7 +99,7 @@ public class GameManager : MonoBehaviour
         TxtScore.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(false);
 
-        yield  return new WaitForSeconds(4);
+        yield  return new WaitForSeconds(3);
 
         TxtMessage.gameObject.SetActive(true);
         TxtScore.gameObject.SetActive(true);

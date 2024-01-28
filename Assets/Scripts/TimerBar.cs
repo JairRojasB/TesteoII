@@ -46,15 +46,11 @@ public class TimerBar : MonoBehaviour
     {
         if (slider.value == 0) 
         {
-            if(gameManager.score < 0)
+            if(gameManager.score <= 0)
             {
                 Debug.Log("Perdiste");
-                if (isTwennig == false)
-                {
-                    gameManager.FurriusPeople();
-                    isTwennig = true;
-                }
-                
+                gameManager.FurriusPeople();
+                isTwennig = true;
             }
             else
             {

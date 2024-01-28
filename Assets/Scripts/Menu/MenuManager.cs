@@ -119,7 +119,7 @@ public class MenuManager : MonoBehaviour
     IEnumerator PerformFade()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game1");
     }
 
     public void ShowVolum(bool isShowing)

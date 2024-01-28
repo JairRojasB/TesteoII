@@ -3727,7 +3727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get 300 Points!
+  m_text: Get 500 Points!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b567e93c8b8c4eb1289768ea65e30, type: 2}
   m_sharedMaterial: {fileID: -3626326461652935998, guid: 316b567e93c8b8c4eb1289768ea65e30, type: 2}

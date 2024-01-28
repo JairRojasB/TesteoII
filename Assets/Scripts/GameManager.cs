@@ -179,6 +179,10 @@ public class GameManager : MonoBehaviour
                 TxtMessage.text = lose1;
                 StartCoroutine(ShowingText());
             }
+            else
+            {
+                btnBack.gameObject.SetActive(true);
+            }
             endThis = 1;
         }
     }

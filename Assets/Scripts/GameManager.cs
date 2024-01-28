@@ -70,11 +70,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < people.Length; i++)
         {
-            if(people[i].GetComponent<Animator>() != null)
-            {
-                //Cambiar de animación 
-                //people[i]
-            }
+            people[i].GetComponent<Animator>().SetInteger("Happy", 2);
         }
     }
 

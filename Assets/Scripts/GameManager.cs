@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject corgiPrefb;
     [SerializeField] private GameObject kapibaraPrefb;
 
-    public PermaData permaData;
+    //public PermaData permaData;
 
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         {
             DOTween.KillAll();
             cortina.CloseTelon();
-            permaData.DefineText(2);
+            //permaData.DefineText(2);
             StartCoroutine(ShowingText());
             
             endThis = 1;
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         {
             DOTween.KillAll();
             cortina.CloseTelon();
-            permaData.DefineText(1);
+            //permaData.DefineText(1);
             StartCoroutine(ShowingText());
             endThis = 1;
         }

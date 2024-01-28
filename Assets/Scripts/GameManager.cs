@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void RestScore()
     {
-        score -= 35;
+        score -= 25;
         _txtScore.text = score.ToString();
         ShakeCamera();
     }

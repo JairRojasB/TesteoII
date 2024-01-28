@@ -16,22 +16,4 @@ public class GokuController : MonoBehaviour
             if (_gokuAnim != null) { _gokuAnim.SetInteger("isTp", 1); }
         }
     }
-
-    private void Update()
-    {
-        if (_gokuAnim != null) 
-        {
-            if(Input.GetKeyDown(KeyCode.G)) 
-            {
-                InitAnimation();
-            }
-        }   
-    }
-
-
-
-    private void InitAnimation()
-    {
-        _gokuAnim.SetInteger("isTp", 1);
-    }
 }

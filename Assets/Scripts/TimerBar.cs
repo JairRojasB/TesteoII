@@ -9,6 +9,7 @@ public class TimerBar : MonoBehaviour
     public GameManager gameManager;
     public SoundManager soundManager;
     public int d;
+    public int scoreGoal;
 
     public Image fill;
 
@@ -47,18 +48,18 @@ public class TimerBar : MonoBehaviour
     {
         if (slider.value == 0 && d == 0) 
         {
-            if(gameManager.score <= 0)
-            {
-                Debug.Log("Perdiste");
-                gameManager.FurriusPeople();
-                isTwennig = true;
-                d = 1;
-            }
-            else
+            if(gameManager.score >= scoreGoal)
             {
                 gameManager.HappyPublic();
                 soundManager.PlayClaps();
                 Debug.Log("Pasaste");
+                d = 1;
+            }
+            else
+            {
+                Debug.Log("Perdiste");
+                gameManager.FurriusPeople();
+                isTwennig = true;
                 d = 1;
             }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo

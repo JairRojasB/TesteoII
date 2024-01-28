@@ -14,10 +14,12 @@ public class MenuManager : MonoBehaviour
     public Sprite[] doorSprites;
 
     public Sprite[] maImg;
-    public Image maObj;
 
     [Space]
     public Slider slider;
+    public Image maObj;
+    public Image bgForV;
+    public Button btnKapi;
 
     public Button btnDoor;
 
@@ -31,6 +33,13 @@ public class MenuManager : MonoBehaviour
     private float insideTime = 0.07f;
 
     private int randomlight;
+
+    private void Start()
+    {
+        ShowVolum(false);
+    }
+
+
 
     private void Update()
     {
@@ -114,4 +123,19 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Game");
     }
+
+    public void ShowVolum(bool isShowing)
+    {
+        slider.gameObject.SetActive(isShowing);
+        maObj.gameObject.SetActive(isShowing);
+        bgForV.gameObject.SetActive(isShowing);
+    }
+
+    public void KapiApha(bool transparent)
+    {
+        if(transparent) btnKapi.GetComponent<Image>().color = new Color(1, 1, 1, 0.6f);
+        else btnKapi.GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
+
+    }
+
 }

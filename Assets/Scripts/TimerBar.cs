@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TimerBar : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class TimerBar : MonoBehaviour
     [SerializeField] private int _maxTime;
     public GameManager gameManager;
 
+    public Image fill;
     void Start() => Starting();
 
     public void Starting()
     {
         slider.maxValue = _maxTime;
         slider.value = _maxTime;
+
+        BarAnim(Color.blue);
     }
 
     void Update()
@@ -28,6 +32,12 @@ public class TimerBar : MonoBehaviour
     {
         slider.maxValue = time;
         slider.value = time;
+    }
+
+
+    private void BarAnim(Color colorMe)
+    {
+        fill.DOColor(Color.green, 1).OnComplete(()=> fill.DOColor(colorMe, 1).OnComplete(()=> fill.DOColor(Color.green, 1)).SetLoops(30));
     }
 
     public void EndTime() 

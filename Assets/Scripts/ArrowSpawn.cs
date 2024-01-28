@@ -23,6 +23,7 @@ public class ArrowSpawn : MonoBehaviour
 
     public void StartingGame()
     {
+        nImage = 0;
         InitBehavior();
         ActiveOne(nImage);
     }
@@ -45,13 +46,14 @@ public class ArrowSpawn : MonoBehaviour
 
     public void ResetGame()
     {
+
         nImage = 0;
 
         for (int i = 0; i < images.Count; i++)
         {
             InitBehavior();
-            images[i].gameObject.SetActive(true);
-            images[i].gameObject.GetComponent<ArrowControll>().RandomArrow();
+            images[i].SetActive(true);
+            images[i].GetComponent<ArrowControll>().RandomArrow();
             ActiveOne(nImage);
         }
 
@@ -64,11 +66,14 @@ public class ArrowSpawn : MonoBehaviour
     //Comportamiento inicial
     private void InitBehavior()
     {
-        for (int i = 1; i < images.Count; i++)
+        for (int i = 0; i < images.Count; i++)
         {
-            images[i].GetComponent<ArrowControll>().InitState();
+            images[i].GetComponent<SpriteRenderer>().color = Color.white;
             images[i].transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            images[i].transform.position = images[i - 1].transform.position + new Vector3(1f, 0);
+            if (i >= 1)
+            {
+                images[i].transform.position = images[i - 1].transform.position + new Vector3(1.3f, 0);
+            }
         }
 
         AnimIcon();

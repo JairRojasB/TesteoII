@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArrowIcons:
-  - {fileID: 21300000, guid: d5d0262519504e34db8a00d8ba12a872, type: 3}
-  - {fileID: 21300000, guid: ac293eb875e50c44e849394637fff1eb, type: 3}
-  - {fileID: 21300000, guid: 6ea60248a1cc70e4ba0fd88f612d1a44, type: 3}
-  - {fileID: 21300000, guid: bb9b1076aed52e942ad50f32de247967, type: 3}
+  - {fileID: 21300000, guid: e2910490d554a444e8d7e06980b6cea8, type: 3}
+  - {fileID: 21300000, guid: 59d59557e7e904144a321f8f8b5ac345, type: 3}
+  - {fileID: 21300000, guid: 840ede27fbe696a4ba57a71f9ab3e322, type: 3}
+  - {fileID: 21300000, guid: a5d9fd2ba31166a49a307c72a1f9436d, type: 3}
   arrowSpawnObj: {fileID: 0}
-  boxCollider: {fileID: 0}
+  soundManager: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!61 &7651793423421491631
 BoxCollider2D:
   m_ObjectHideFlags: 0

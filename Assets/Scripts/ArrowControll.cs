@@ -106,7 +106,9 @@ public class ArrowControll : MonoBehaviour
         {
             arrowSpawnObj.AddN();
             gameManager.AddScore();
-            
+
+            this.GetComponent<SpriteRenderer>().color = Color.green;
+
             if (arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
             {
                 soundManager.PlaySelecctedListener(true);
@@ -127,6 +129,8 @@ public class ArrowControll : MonoBehaviour
         }
         else
         {
+            InitState();
+
             _manoloAnim.SetBool("Fail", true);
             soundManager.PlaySelecctedListener(false);
             soundManager.KeySounds(false);
@@ -138,8 +142,6 @@ public class ArrowControll : MonoBehaviour
             
             arrowSpawnObj.nImage = 0;
             arrowSpawnObj.ResetGame();
-
-            Debug.Log("FALLO");
             //Ocurre evento random y se repite la secuencia de flechas
         }
     }

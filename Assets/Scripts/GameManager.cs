@@ -141,9 +141,10 @@ public class GameManager : MonoBehaviour
         if(endThis == 0)
         {
             DOTween.KillAll();
-            //cortina.CloseTelon();
-            StartCoroutine(ShowingText(exito1));
-            PlayerPrefs.SetInt("level", 3);
+            cortina.CloseTelon();
+            permaData.DefineText(2);
+            StartCoroutine(ShowingText());
+            
             endThis = 1;
         }
     }
@@ -158,19 +159,32 @@ public class GameManager : MonoBehaviour
         if (endThis == 0)
         {
             DOTween.KillAll();
-            //cortina.CloseTelon();
-            StartCoroutine(ShowingText(lose1));
-            PlayerPrefs.SetInt("level", 2);
+            cortina.CloseTelon();
+            permaData.DefineText(1);
+            StartCoroutine(ShowingText());
             endThis = 1;
         }
     }
 
     public void ReloadGame()
     {
+        switch (PlayerPrefs.GetInt("level"))
+        {
+            case 1:
+                PlayerPrefs.SetInt("level", 3);
+                break;
+            case 2:
+                PlayerPrefs.SetInt("level", 3);
+                break;
+            default:
+                SceneManager.LoadScene("Menu");
+                break;
+        }
+        
         SceneManager.LoadScene("Game");
     }
 
-    IEnumerator ShowingText(string showingText)
+    IEnumerator ShowingText()
     {
         yield return new WaitForSeconds(2);
 
@@ -189,8 +203,6 @@ public class GameManager : MonoBehaviour
         btnBack.gameObject.SetActive(true);
 
         TxtScore.text = score.ToString();
-
-        TxtMessage.text = showingText;
 
         TxtMessage.DOFade(1, 1);
         TxtScore.DOFade(1, 1);

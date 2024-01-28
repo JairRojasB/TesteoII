@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gokuSpawn: {fileID: 119044787}
+  _gokuAnim: {fileID: 0}
 --- !u!1 &293584878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,6 +3180,10 @@ PrefabInstance:
     - target: {fileID: 923795787061025643, guid: b524d662bc12ec94682fd7733d87b36a, type: 3}
       propertyPath: m_Name
       value: CanvasSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 923795787061025643, guid: b524d662bc12ec94682fd7733d87b36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923795787094061447, guid: b524d662bc12ec94682fd7733d87b36a, type: 3}
       propertyPath: m_AnchorMax.x

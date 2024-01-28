@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -47,7 +48,9 @@ public class SoundManager : MonoBehaviour
     {
         DetectAllVolum();
         slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumenData");
-        
+        if(SceneManager.GetActiveScene().name == "Game") StartCoroutine(PlaySusi());
+
+
     }
     private void Update()
     {
@@ -72,7 +75,7 @@ public class SoundManager : MonoBehaviour
 
     private void SusiRandomVoice()
     {
-        int esta = Random.Range(0, susiClips.Length);
+        int esta = Random.Range(0, susiClips.Length-1);
 
         susiSource.clip = susiClips[esta];
         susiSource.Play();

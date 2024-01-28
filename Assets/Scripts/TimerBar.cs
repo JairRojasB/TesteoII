@@ -10,6 +10,7 @@ public class TimerBar : MonoBehaviour
     [SerializeField] private int _maxTime;
     public GameManager gameManager;
     public SoundManager soundManager;
+    public int d;
 
     public Image fill;
 
@@ -22,6 +23,7 @@ public class TimerBar : MonoBehaviour
         slider.value = _maxTime;
 
         BarAnim(Color.blue);
+        
     }
 
     void Update()
@@ -45,19 +47,21 @@ public class TimerBar : MonoBehaviour
 
     public void EndTime() 
     {
-        if (slider.value == 0) 
+        if (slider.value == 0 && d == 0) 
         {
             if(gameManager.score <= 0)
             {
                 Debug.Log("Perdiste");
                 gameManager.FurriusPeople();
                 isTwennig = true;
+                d = 1;
             }
             else
             {
                 gameManager.HappyPublic();
                 soundManager.PlayClaps();
                 Debug.Log("Pasaste");
+                d = 1;
             }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo
             //print("AEA");

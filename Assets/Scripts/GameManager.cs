@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
     public Button btnBack;  
 
     private void Awake() => StarThisGame(false);
+    private void Start()
+    {
+        TxtMessage.DOFade(0, 0.1f);
+        TxtScore.DOFade(0, 0.1f);
+        TxtMessage.gameObject.SetActive(false);
+        TxtScore.gameObject.SetActive(false);
+        btnBack.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -45,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void RestarGame()
     {
         score = 0;
+        timer.d = 0;
         timer.gameObject.SetActive(true);
         arrowSpawn.gameObject.SetActive(true);
     }
@@ -73,6 +82,14 @@ public class GameManager : MonoBehaviour
         {
             people[i].GetComponent<Animator>().SetInteger("Happy", 2);
         }
+
+        if(endThis == 0)
+        {
+            DOTween.KillAll();
+            //cortina.CloseTelon();
+            StartCoroutine(ShowingText("Si ♥"));
+            endThis = 1;
+        }
     }
 
     public void FurriusPeople()
@@ -86,7 +103,7 @@ public class GameManager : MonoBehaviour
         {
             DOTween.KillAll();
             //cortina.CloseTelon();
-            StartCoroutine(ShowingText());
+            StartCoroutine(ShowingText("You know what!, it's the game's fault"));
             endThis = 1;
         }
     }
@@ -98,7 +115,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    IEnumerator ShowingText()
+    IEnumerator ShowingText(string showingText)
     {
         yield return new WaitForSeconds(2);
 
@@ -118,9 +135,7 @@ public class GameManager : MonoBehaviour
 
         TxtScore.text = score.ToString();
 
-        TxtMessage.text = "You know what!, it's the game's fault";
-
-        TxtMessage.text = "You know what!, it's the game's foult";
+        TxtMessage.text = showingText;
 
         TxtMessage.DOFade(1, 1);
         TxtScore.DOFade(1, 1);

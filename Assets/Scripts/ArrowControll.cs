@@ -18,8 +18,16 @@ public class ArrowControll : MonoBehaviour
     private int AIValue;
 
     private TimerBar timer;
+
+    private Animator _manoloAnim;
+
     private void Awake()
     {
+        if (GameObject.FindGameObjectWithTag("Player") != null) 
+        {
+            _manoloAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        }
+
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
         soundManager = GameObject.Find("AudioManager").GetComponent<SoundManager>();
         RandomArrow();
@@ -102,11 +110,13 @@ public class ArrowControll : MonoBehaviour
         }
         else
         {
+            _manoloAnim.SetBool("Fail", true);
             soundManager.PlaySelecctedListener(false);
             soundManager.KeySounds(false);
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
 
+            
             arrowSpawnObj.nImage = 0;
             arrowSpawnObj.ResetGame();
 

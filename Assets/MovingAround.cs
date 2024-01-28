@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingAround : MonoBehaviour
@@ -14,8 +12,8 @@ public class MovingAround : MonoBehaviour
     {
         RandomDireccion();
         rgdb = this.GetComponent<Rigidbody2D>();
-        speed = 10f;
-        impulseForce = 10f;
+        speed = 30f;
+        impulseForce = 40f;
 
         timing = 2f;
     }
@@ -37,6 +35,7 @@ public class MovingAround : MonoBehaviour
 
         if(timing <= 0)
         {
+            RandomDireccion();
             rgdb.AddForce(Vector2.up * impulseForce, ForceMode2D.Impulse);
             timing = 2;
         }

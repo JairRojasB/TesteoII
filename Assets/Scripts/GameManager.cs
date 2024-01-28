@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
@@ -28,14 +27,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TxtMessage, TxtScore;
     public Button btnBack;
 
-    private string lose1, lose2;
+    private string lose1;
     private string exito1;
 
     private void Awake() {
         StarThisGame(false);
 
         lose1 = "Este es tu #1er intento. Trata de no cagarla";
-        lose2 = "Intento #2. Ya no tiene dignidad, basura. A ver si al menos usas tu odio";
+        //lose2 = "Intento #2. Ya no tiene dignidad, basura. A ver si al menos usas tu odio";
 
         exito1 = "Este es tu intento #1. Encuentra tu dignidad y úsala";
     }

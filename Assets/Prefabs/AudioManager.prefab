@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532969d06fef3264e95dc32f07d049ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderPrefb: {fileID: 923795787061025643, guid: b524d662bc12ec94682fd7733d87b36a, type: 3}
   goodClips:
   - {fileID: 8300000, guid: 152637a02abd291488e575af33d97e82, type: 3}
   - {fileID: 8300000, guid: f22dccaa0e179424fafa577c19edd0e2, type: 3}
@@ -65,4 +66,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57324e6718ffa1f4ba5cb34307c10e3e, type: 3}
   - {fileID: 8300000, guid: 9485155dbc295fa4ba82d34783cfbe2f, type: 3}
   - {fileID: 8300000, guid: c7fe1104991e30a4c94d8be01a64d0ee, type: 3}
-  audioSource: {fileID: 0}
+  menuClips: []
+  random: []
+  publicReaction: {fileID: 0}
+  shutUpSusi: 0
+  peopleSource: {fileID: 0}
+  randomSource: {fileID: 0}
+  _correctKey: {fileID: 0}
+  _badKey: {fileID: 0}
+  _keyResults: {fileID: 0}
+  hoverSource: {fileID: 0}
+  pressedSource: {fileID: 0}
+  susiSource: {fileID: 0}
+  susiClips: []
+  clapsSources: []
+  clapsClips: []
+  audioSources: []

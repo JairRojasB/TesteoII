@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -9,20 +8,51 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
 
-    public Button btnDoor;
+    public Image BG;
 
+    public Sprite[] bgAnim;
     public Sprite[] doorSprites;
+
+    public Button btnDoor;
 
     private bool isClicked = false;
 
     [SerializeField] private RectTransform _bg;
 
+    private float timein = 3.0f;
+    private float insideTime = 0.07f;
+
     private void Update()
     {
-        if (isClicked == true)
+        timein -= Time.deltaTime;
+
+        if (isClicked == true) btnDoor.GetComponent<Image>().sprite = doorSprites[1];
+
+        if (timein <= 0)
         {
-            btnDoor.GetComponent<Image>().sprite = doorSprites[1];
+            StartCoroutine(Lighting());
+
+            timein = 3.0f;
         }
+    }
+
+    IEnumerator Lighting()
+    {
+        BG.sprite = bgAnim[0];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[1];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[0];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[1];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[0];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[1];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[0];
+        yield return new WaitForSeconds(insideTime);
+        BG.sprite = bgAnim[1];
     }
 
 

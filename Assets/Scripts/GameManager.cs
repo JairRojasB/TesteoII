@@ -48,6 +48,15 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Game1")
+        {
+            maxScore = 300;
+        }
+        else if (SceneManager.GetActiveScene().name == "Game2")
+        {
+            maxScore = 500;
+        }
+
         Instantiate(kapibaraPrefb, new Vector3(0, 0, 0), Quaternion.identity);
 
         TxtMessage.DOFade(0, 0.1f);
@@ -140,10 +149,14 @@ public class GameManager : MonoBehaviour
 
         if(endThis == 0)
         {
+            if(SceneManager.GetActiveScene().name == "Game1")
+            {
+                TxtMessage.text = exito1;
+                StartCoroutine(ShowingText());
+            }
+
             DOTween.KillAll();
             cortina.CloseTelon();
-            //permaData.DefineText(2);
-            StartCoroutine(ShowingText());
             
             endThis = 1;
         }
@@ -160,8 +173,12 @@ public class GameManager : MonoBehaviour
         {
             DOTween.KillAll();
             cortina.CloseTelon();
-            //permaData.DefineText(1);
-            StartCoroutine(ShowingText());
+
+            if (SceneManager.GetActiveScene().name == "Game1")
+            {
+                TxtMessage.text = lose1;
+                StartCoroutine(ShowingText());
+            }
             endThis = 1;
         }
     }

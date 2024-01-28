@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: scoreGoal
-      value: 300
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: gameManager

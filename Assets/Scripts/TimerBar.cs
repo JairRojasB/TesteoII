@@ -7,6 +7,7 @@ public class TimerBar : MonoBehaviour
 {
     public Slider slider;
     [SerializeField] private int _maxTime;
+    public GameManager gameManager;
 
     void Start() => Starting();
 
@@ -33,6 +34,14 @@ public class TimerBar : MonoBehaviour
     {
         if (slider.value == 0) 
         {
+            if(gameManager.score < 0)
+            {
+                Debug.Log("Perdiste");
+            }
+            else
+            {
+                Debug.Log("Pasaste");
+            }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo
             //print("AEA");
 

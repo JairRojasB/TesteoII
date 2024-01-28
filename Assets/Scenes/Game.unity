@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!4 &69092001 stripped
@@ -483,6 +487,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!4 &206964601 stripped
@@ -968,6 +976,10 @@ PrefabInstance:
       propertyPath: _maxTime
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     - target: {fileID: 9087263694488440590, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_Name
       value: TimeBar
@@ -1415,6 +1427,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!4 &511964406 stripped
@@ -1960,6 +1976,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!4 &794201353 stripped
@@ -3516,6 +3536,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!4 &1608059967 stripped
@@ -4127,9 +4151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df009391098e8df49a5abec92c406be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _txtScore: {fileID: 1239612338}
   timer: {fileID: 1824360451}
   arrowSpawn: {fileID: 1882916724}
   people: []
+  score: 0
 --- !u!1001 &923795787021260085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4318,6 +4344,10 @@ PrefabInstance:
       propertyPath: _txtScore
       value: 
       objectReference: {fileID: 1239612338}
+    - target: {fileID: 7651793423421491628, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2035376890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
 --- !u!1001 &8645132965762893313

@@ -9,23 +9,20 @@ public class ArrowControll : MonoBehaviour
     enum ARROWSTATE { IDLE, PRESSING }
     private ARROWSTATE state = ARROWSTATE.IDLE;
 
-    [SerializeField] private TextMeshProUGUI _txtScore;
-
     public Sprite[] ArrowIcons;
 
     public ArrowSpawn arrowSpawnObj;
 
     public SoundManager soundManager;
 
+    public GameManager gameManager;
+
     private int pressValue;
-    private int AIValue;
-    private int score;
+    private int AIValue;  
 
     private TimerBar timer;
     private int _sequenceCount;
     private TextMeshProUGUI _sequenceCountText;
-
-    
 
     private Animator _manoloAnim;
 
@@ -44,6 +41,7 @@ public class ArrowControll : MonoBehaviour
 
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
         soundManager = GameObject.Find("AudioManager").GetComponent<SoundManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
         RandomArrow();
     }
 
@@ -107,7 +105,8 @@ public class ArrowControll : MonoBehaviour
         if (AIValue == pressValue)
         {
             arrowSpawnObj.AddN();
-            score += 5;
+            gameManager.AddScore();
+            
             if (arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
             {
                 soundManager.PlaySelecctedListener(true);
@@ -134,7 +133,7 @@ public class ArrowControll : MonoBehaviour
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
 
-            score -= 35;
+            gameManager.RestScore();
 
             
             arrowSpawnObj.nImage = 0;
@@ -143,7 +142,6 @@ public class ArrowControll : MonoBehaviour
             Debug.Log("FALLO");
             //Ocurre evento random y se repite la secuencia de flechas
         }
-        _txtScore.text = score.ToString();
     }
 
     public void ChangeState() => state = ARROWSTATE.PRESSING;

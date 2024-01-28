@@ -77,10 +77,15 @@ public class GameManager : MonoBehaviour
 
     public void FurriusPeople()
     {
-        if(endThis == 0)
+        for (int i = 0; i < people.Length; i++)
+        {
+            people[i].GetComponent<Animator>().SetInteger("Sad", 1);
+        }
+
+        if (endThis == 0)
         {
             DOTween.KillAll();
-            cortina.CloseTelon();
+            //cortina.CloseTelon();
             StartCoroutine(ShowingText());
             endThis = 1;
         }
@@ -93,6 +98,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowingText()
     {
+        yield return new WaitForSeconds(2);
+
+        cortina.CloseTelon();
+
         TxtMessage.DOFade(0, 0.1f);
         TxtScore.DOFade(0, 0.1f);
         TxtMessage.gameObject.SetActive(false);

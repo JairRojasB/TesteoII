@@ -38,5 +38,6 @@ public class GameManager : MonoBehaviour
     {
         score -= 35;
         _txtScore.text = score.ToString();
+        ShakeCamera();
     }
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m6Idel
+  m_Name: GokuShake
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: c5b05987fbd64274aa18c48a93312a55, type: 3}
-    - time: 0.15
-      value: {fileID: 21300000, guid: c5b05987fbd64274aa18c48a93312a55, type: 3}
-    - time: 0.28333333
-      value: {fileID: 21300000, guid: 501dbfe586cc2f5419fa8b6d633d009d, type: 3}
+      value: {fileID: 21300000, guid: 2aa5033924745bd4ab3c60ba366613ec, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: 22cb7a5379fe4c242a8b3170c7b9334a, type: 3}
+    - time: 0.51666665
+      value: {fileID: 21300000, guid: ce0681b5696ac614f839cf7b7e0924a0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: c5b05987fbd64274aa18c48a93312a55, type: 3}
-    - {fileID: 21300000, guid: c5b05987fbd64274aa18c48a93312a55, type: 3}
-    - {fileID: 21300000, guid: 501dbfe586cc2f5419fa8b6d633d009d, type: 3}
+    - {fileID: 21300000, guid: 2aa5033924745bd4ab3c60ba366613ec, type: 3}
+    - {fileID: 21300000, guid: 22cb7a5379fe4c242a8b3170c7b9334a, type: 3}
+    - {fileID: 21300000, guid: ce0681b5696ac614f839cf7b7e0924a0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3
+    m_StopTime: 0.5333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

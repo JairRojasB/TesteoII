@@ -8,15 +8,10 @@ public class GameManager : MonoBehaviour
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
 
+    public Sprite[] people;
+
     private void Awake() => StarThisGame(false);
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ShakeCamera();
-        }
-    }
     public void StarThisGame(bool esta)
     {
         timer.gameObject.SetActive(esta);

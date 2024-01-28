@@ -6,8 +6,10 @@ using TMPro;
 
 public class ArrowControll : MonoBehaviour
 {
-    enum ARROWSTATE { IDLE, PRESSING}
+    enum ARROWSTATE { IDLE, PRESSING }
     private ARROWSTATE state = ARROWSTATE.IDLE;
+
+    [SerializeField] private TextMeshProUGUI _txtScore;
 
     public Sprite[] ArrowIcons;
 
@@ -17,10 +19,13 @@ public class ArrowControll : MonoBehaviour
 
     private int pressValue;
     private int AIValue;
+    private int score;
 
     private TimerBar timer;
     private int _sequenceCount;
     private TextMeshProUGUI _sequenceCountText;
+
+    
 
     private Animator _manoloAnim;
 
@@ -102,7 +107,7 @@ public class ArrowControll : MonoBehaviour
         if (AIValue == pressValue)
         {
             arrowSpawnObj.AddN();
-
+            score += 5;
             if (arrowSpawnObj.nImage == arrowSpawnObj.images.Count)
             {
                 soundManager.PlaySelecctedListener(true);
@@ -110,6 +115,7 @@ public class ArrowControll : MonoBehaviour
                 if (_sequenceCount > 0) { _sequenceCount--; }
                 _sequenceCountText.text = "Complete " + _sequenceCount + " sequences";
                 arrowSpawnObj.ResetGame();
+
 
             }
 
@@ -128,6 +134,8 @@ public class ArrowControll : MonoBehaviour
             timer = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>();
             timer.slider.value -= 1;
 
+            score -= 35;
+
             
             arrowSpawnObj.nImage = 0;
             arrowSpawnObj.ResetGame();
@@ -135,6 +143,7 @@ public class ArrowControll : MonoBehaviour
             Debug.Log("FALLO");
             //Ocurre evento random y se repite la secuencia de flechas
         }
+        _txtScore.text = score.ToString();
     }
 
     public void ChangeState() => state = ARROWSTATE.PRESSING;

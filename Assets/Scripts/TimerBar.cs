@@ -35,6 +35,7 @@ public class TimerBar : MonoBehaviour
         {
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo
             //print("AEA");
+
         }
     }
 }

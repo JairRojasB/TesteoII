@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             if(people[i].GetComponent<Animator>() != null)
             {
-                //Cambiar de animación
+                //Cambiar de animación 
                 //people[i]
             }
         }

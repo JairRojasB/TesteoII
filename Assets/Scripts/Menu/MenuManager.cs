@@ -13,14 +13,24 @@ public class MenuManager : MonoBehaviour
     public Sprite[] bgAnim;
     public Sprite[] doorSprites;
 
+    public Sprite[] maImg;
+    public Image maObj;
+
+    [Space]
+    public Slider slider;
+
     public Button btnDoor;
 
     private bool isClicked = false;
+
+    private int lala = 0;
 
     [SerializeField] private RectTransform _bg;
 
     private float timein = 3.0f;
     private float insideTime = 0.07f;
+
+    private int randomlight;
 
     private void Update()
     {
@@ -34,6 +44,25 @@ public class MenuManager : MonoBehaviour
 
             timein = 3.0f;
         }
+
+        if (slider.value>0.7f && lala == 0)
+        {
+            StartCoroutine(Shakingdud());
+        }
+        else if (slider.value > 0.3f && slider.value < 0.7f) maObj.sprite = maImg[1];
+        else if (slider.value <= 0.3f) maObj.sprite = maImg[0];
+        
+    }
+
+    IEnumerator Shakingdud()
+    {
+        lala = 1;
+        maObj.sprite = maImg[2];    
+        yield return new WaitForSeconds(insideTime);
+        maObj.sprite = maImg[3];
+        yield return new WaitForSeconds(insideTime);
+        maObj.sprite = maImg[4];
+        lala = 0;
     }
 
     IEnumerator Lighting()
@@ -52,7 +81,10 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(insideTime);
         BG.sprite = bgAnim[0];
         yield return new WaitForSeconds(insideTime);
-        BG.sprite = bgAnim[1];
+        randomlight = Random.Range(0, 11);
+
+        if (randomlight <= 5) BG.sprite = bgAnim[1];
+        else BG.sprite = bgAnim[0];
     }
 
 

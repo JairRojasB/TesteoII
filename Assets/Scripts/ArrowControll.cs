@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ArrowControll : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ArrowControll : MonoBehaviour
     private int AIValue;
 
     private TimerBar timer;
+    private int _sequenceCount;
+    private TextMeshProUGUI _sequenceCountText;
 
     private Animator _manoloAnim;
 
@@ -26,6 +29,12 @@ public class ArrowControll : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") != null) 
         {
             _manoloAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        }
+
+        setMaxSequences(7);
+        if (GameObject.FindGameObjectWithTag("SequenceCounter") != null)
+        {
+            _sequenceCountText = GameObject.FindGameObjectWithTag("SequenceCounter").GetComponent<TextMeshProUGUI>();
         }
 
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
@@ -98,7 +107,10 @@ public class ArrowControll : MonoBehaviour
             {
                 soundManager.PlaySelecctedListener(true);
                 arrowSpawnObj.nImage = 0;
+                _sequenceCount--;
+                _sequenceCountText.text = "Complete " + _sequenceCount + " sequences";
                 arrowSpawnObj.ResetGame();
+
             }
 
             arrowSpawnObj.fail = false;
@@ -127,4 +139,9 @@ public class ArrowControll : MonoBehaviour
 
     public void ChangeState() => state = ARROWSTATE.PRESSING;
     public void InitState() => state = ARROWSTATE.IDLE;
+
+    public void setMaxSequences(int max) 
+    {
+        _sequenceCount = max;
+    }
 }

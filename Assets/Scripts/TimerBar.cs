@@ -9,6 +9,7 @@ public class TimerBar : MonoBehaviour
     public Slider slider;
     [SerializeField] private int _maxTime;
     public GameManager gameManager;
+    public SoundManager soundManager;
 
     public Image fill;
 
@@ -55,6 +56,7 @@ public class TimerBar : MonoBehaviour
             else
             {
                 gameManager.HappyPublic();
+                soundManager.PlaySelecctedListener(true);
                 Debug.Log("Pasaste");
             }
             //Invocar método perder/generar nuevas flechas/lo que tenga que pasar cuando se acabe el tiempo

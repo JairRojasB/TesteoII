@@ -814,7 +814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230482691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.7, y: 1.51, z: 0}
+  m_LocalPosition: {x: -7.28, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -855,6 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gokuSpawn: {fileID: 119044787}
   _gokuAnim: {fileID: 0}
+  _willHeYeet: 0
 --- !u!1 &279710450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1199,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2035376890}
+    - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1216006499}
     - target: {fileID: 9087263694488440590, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_Name
       value: TimeBar
@@ -2831,6 +2836,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1216006499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8645132965967388376, guid: 8b0b74b6ddca8fd41abad8077f39a0d5, type: 3}
+  m_PrefabInstance: {fileID: 8645132965762893313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532969d06fef3264e95dc32f07d049ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1229077391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,7 +4568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images: []
-  arrowPrefb: {fileID: 7651793423421491619, guid: adaf6b9e2cf88a0439dd1542e3eaecb9, type: 3}
+  arrowPrefb: {fileID: 0}
   nImage: 3
   fail: 0
 --- !u!224 &1882916726

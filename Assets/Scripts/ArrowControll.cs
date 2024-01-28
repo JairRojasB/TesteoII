@@ -147,7 +147,7 @@ public class ArrowControll : MonoBehaviour
     }
 
     public void ChangeState() => state = ARROWSTATE.PRESSING;
-    public void InitState() => state = ARROWSTATE.IDLE;
+    public void InitState() => state = ARROWSTATE.IDLE; 
 
     public void setMaxSequences(int max) 
     {

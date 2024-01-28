@@ -117,11 +117,10 @@ public class GameManager : MonoBehaviour
         btnBack.gameObject.SetActive(true);
 
         TxtScore.text = score.ToString();
-<<<<<<< Updated upstream
+
         TxtMessage.text = "You know what!, it's the game's fault";
-=======
+
         TxtMessage.text = "You know what!, it's the game's foult";
->>>>>>> Stashed changes
 
         TxtMessage.DOFade(1, 1);
         TxtScore.DOFade(1, 1);

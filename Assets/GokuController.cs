@@ -23,6 +23,8 @@ public class GokuController : MonoBehaviour
         }
     }
 
+
+
     private void InitAnimation()
     {
         _gokuAnim.SetInteger("isTp", 1);

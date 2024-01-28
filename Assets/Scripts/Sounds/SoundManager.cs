@@ -9,10 +9,15 @@ public class SoundManager : MonoBehaviour
 
     private SliderController slider;
 
-    public AudioClip[] goodClips, badClips, menuClips;
+    public AudioClip[] goodClips, badClips, menuClips, random;
 
     public AudioSource publicReaction;
 
+    [Space]
+    [SerializeField] private AudioSource peopleSource;
+    [SerializeField] private AudioSource randomSource;
+
+    [Space]
     [SerializeField] private AudioClip _correctKey;
     [SerializeField] private AudioClip _badKey;
     [SerializeField] private AudioSource _keyResults;
@@ -45,14 +50,8 @@ public class SoundManager : MonoBehaviour
 
     public void KeySounds(bool wasItCorrect) 
     {
-        if (wasItCorrect == true)
-        {
-            _keyResults.clip = _correctKey;
-        }
-        else 
-        {
-            _keyResults.clip = _badKey;
-        }
+        if (wasItCorrect == true) _keyResults.clip = _correctKey;
+        else _keyResults.clip = _badKey;
 
         _keyResults.Play();
         _keyResults.volume = PlayerPrefs.GetFloat("volumenData");

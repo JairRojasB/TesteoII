@@ -107,7 +107,7 @@ public class ArrowControll : MonoBehaviour
             {
                 soundManager.PlaySelecctedListener(true);
                 arrowSpawnObj.nImage = 0;
-                _sequenceCount--;
+                if (_sequenceCount > 0) { _sequenceCount--; }
                 _sequenceCountText.text = "Complete " + _sequenceCount + " sequences";
                 arrowSpawnObj.ResetGame();
 

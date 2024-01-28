@@ -48,7 +48,7 @@ public class TimerBar : MonoBehaviour
     {
         if (slider.value == 0 && d == 0) 
         {
-            if(gameManager.score >= scoreGoal)
+            if(gameManager.score >= scoreGoal-1)
             {
                 gameManager.HappyPublic();
                 soundManager.PlayClaps();

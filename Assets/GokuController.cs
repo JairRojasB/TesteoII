@@ -12,6 +12,6 @@ public class GokuController : MonoBehaviour
     }
     private void InitAnimation()
     {
-        this.gameObject.GetComponent<Animator>().SetInteger(0, 1);
+        //this.gameObject.GetComponent<Animator>().
     }
 }

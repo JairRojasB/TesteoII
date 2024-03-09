@@ -17,4 +17,6 @@ public class SliderController : MonoBehaviour
     {
         if(this.transform.GetChild(0).gameObject.activeInHierarchy) PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
     }
+
+    public void HideOrShowBar(bool isShowing) => this.gameObject.SetActive(isShowing);
 }

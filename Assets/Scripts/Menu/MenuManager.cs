@@ -98,7 +98,19 @@ public class MenuManager : MonoBehaviour
     public void ChangeSprite(int n)
     {
         soundManager.PlayHover();
-        btnDoor.GetComponent<Image>().sprite = doorSprites[n];
+        switch (n)
+        {
+            case 0:
+                btnDoor.GetComponent<Image>().sprite = doorSprites[1];
+                btnDoor.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                break;
+            case 1:
+                btnDoor.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                break;
+            default:
+                break;
+        }
+        
     }
 
     public void Zooming()

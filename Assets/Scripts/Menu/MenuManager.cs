@@ -127,6 +127,7 @@ public class MenuManager : MonoBehaviour
         _bg.DOMoveX(_bg.transform.position.x - 345, 1).SetEase(Ease.InFlash);
         _bg.DOMoveY(_bg.transform.position.y + 1450, 1).SetEase(Ease.InFlash);
         btnDoor.interactable = false;
+        btnKapi.gameObject.SetActive(false);
         StartCoroutine(PerformFade());
 
     }

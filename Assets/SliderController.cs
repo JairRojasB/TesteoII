@@ -5,6 +5,8 @@ public class SliderController : MonoBehaviour
 {
     public SoundManager soundManager;
 
+    public GameObject sliderPrefab;
+
     PlayerPrefs volumenData;
 
     private void Awake()
@@ -15,7 +17,7 @@ public class SliderController : MonoBehaviour
 
     private void Update()
     {
-        if(this.transform.GetChild(0).gameObject.activeInHierarchy) PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
+        if(sliderPrefab.gameObject.activeInHierarchy) PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
     }
 
     public void HideOrShowBar(bool isShowing) => this.gameObject.SetActive(isShowing);

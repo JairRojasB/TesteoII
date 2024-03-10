@@ -117,7 +117,8 @@ public class MenuManager : MonoBehaviour
     {
         isClicked = true;
 
-        slider.GetComponentInParent<SliderController>().HideOrShowBar(false);
+        //slider.GetComponentInParent<SliderController>().HideOrShowBar(false);
+        slider.gameObject.SetActive(false);
         soundManager.PlayBtnPressed();
         
         //btnDoor.transform.DOScale(new Vector2(5,5), 1).SetEase(Ease.InFlash);

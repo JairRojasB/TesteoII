@@ -17,6 +17,7 @@ public class SliderController : MonoBehaviour
 
     private void Update()
     {
+        if (sliderPrefab == null) sliderPrefab = GameObject.Find("SliderAudio");
         if(sliderPrefab.gameObject.activeInHierarchy) PlayerPrefs.SetFloat("volumenData", this.transform.GetComponentInChildren<Slider>().value);
     }
 

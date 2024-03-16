@@ -849,7 +849,7 @@ RectTransform:
   - {fileID: 1610113616}
   - {fileID: 1905459793}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.422}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -900,7 +900,7 @@ Transform:
   m_Children:
   - {fileID: 119044788}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307294653
 GameObject:
@@ -1857,7 +1857,7 @@ Transform:
   - {fileID: 978743673}
   - {fileID: 1503900033}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645733821
 GameObject:
@@ -3447,7 +3447,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1327701543
 Animator:
@@ -4244,7 +4244,7 @@ Transform:
   - {fileID: 1522085445}
   - {fileID: 1768707320}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1632691954 stripped
 MonoBehaviour:
@@ -4648,7 +4648,7 @@ RectTransform:
   - {fileID: 511964406}
   - {fileID: 206964601}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4931,7 +4931,7 @@ Transform:
   - {fileID: 1229077393}
   - {fileID: 1773641806}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035376888
 GameObject:
@@ -4963,7 +4963,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2035376890
 MonoBehaviour:
@@ -4993,13 +4993,13 @@ MonoBehaviour:
   - {fileID: 1380659669}
   - {fileID: 978743674}
   score: 0
+  maxScore: 0
   endThis: 0
   TxtMessage: {fileID: 2073868970}
   TxtScore: {fileID: 975583415}
   btnBack: {fileID: 1276867878}
   genteAnim: {fileID: 1327701543}
   fullPublic: 0
-  maxScore: 0
 --- !u!1 &2073868968
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,7 +5160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111142463255283565, guid: ddb1269bf914a0a4aa1a9bc24c76083a, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 111142463255283565, guid: ddb1269bf914a0a4aa1a9bc24c76083a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5406,7 +5406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645132965967388379, guid: 8b0b74b6ddca8fd41abad8077f39a0d5, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8645132965967388379, guid: 8b0b74b6ddca8fd41abad8077f39a0d5, type: 3}
       propertyPath: m_LocalPosition.x

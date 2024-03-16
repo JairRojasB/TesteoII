@@ -12,6 +12,7 @@ public class SliderController : MonoBehaviour
     private void Awake()
     {
         soundManager = GameObject.FindObjectOfType<SoundManager>();
+        HideOrShowBar(true);
     }
 
     private void Update()

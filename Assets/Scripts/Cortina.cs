@@ -10,15 +10,9 @@ public class Cortina : MonoBehaviour
     [SerializeField] private SceneChanger _fade;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(AbrirCortina());
-    }
+    void Start() => StartCoroutine(AbrirCortina());
 
-    public void CloseTelon()
-    {
-        StartCoroutine(CloseCortina());
-    }
+    public void CloseTelon() => StartCoroutine(CloseCortina());
 
     IEnumerator AbrirCortina() 
     {

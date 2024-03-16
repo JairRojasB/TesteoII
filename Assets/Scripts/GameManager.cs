@@ -160,22 +160,16 @@ public class GameManager : MonoBehaviour
                 TxtMessage.text = lose1;
                 StartCoroutine(ShowingText());
             }
-            else
-            {
-                btnBack.gameObject.SetActive(true);
-            }
+            else btnBack.gameObject.SetActive(true);
+
             endThis = 1;
         }
     }
 
     public void ReloadGame()
     {
-        if(SceneManager.GetActiveScene().name == "Game1")
-        {
-            SceneManager.LoadScene("Game2");
-        }else if(SceneManager.GetActiveScene().name == "Game2"){
-            SceneManager.LoadScene("Menu");
-        }
+        if(SceneManager.GetActiveScene().name == "Game1") SceneManager.LoadScene("Game2");
+        else if(SceneManager.GetActiveScene().name == "Game2") SceneManager.LoadScene("Menu");
     }
 
     IEnumerator ShowingText()

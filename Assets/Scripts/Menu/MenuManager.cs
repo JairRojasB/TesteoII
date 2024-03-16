@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
     [Space]
     public Slider slider;
     public Image maObj;
+
     public Image bgForV;
     public Button btnKapi;
 

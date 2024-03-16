@@ -10,8 +10,6 @@ public class SoundManager : MonoBehaviour
 
     private Slider slider;
 
-    public GameObject sliderPrefb;
-
     public AudioClip[] goodClips, badClips, menuClips, random;
 
     public AudioSource publicReaction;
@@ -41,12 +39,12 @@ public class SoundManager : MonoBehaviour
 
     [Space]
     public List<AudioSource> audioSources;
+
+
     private void Awake()
     {
-        slider = GameObject.FindObjectOfType<Slider>();
-        if(slider == null) slider = Instantiate(sliderPrefb).GetComponentInChildren<Slider>();
+        slider = GameObject.Find("SliderAudio").GetComponent<Slider>();
     }
-
     private void Start()
     {
         DetectAllVolum();

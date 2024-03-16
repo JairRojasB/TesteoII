@@ -39,10 +39,7 @@ public class TimerBar : MonoBehaviour
     }
 
 
-    private void BarAnim(Color colorMe)
-    {
-        fill.DOColor(Color.green, 1).OnComplete(()=> fill.DOColor(colorMe, 1).OnComplete(()=> fill.DOColor(Color.green, 1)).SetLoops(30));
-    }
+    private void BarAnim(Color colorMe) => fill.DOColor(Color.green, 1).OnComplete(() => fill.DOColor(colorMe, 1).OnComplete(() => fill.DOColor(Color.green, 1)).SetLoops(30));
 
     public void EndTime() 
     {

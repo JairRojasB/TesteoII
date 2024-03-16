@@ -23,10 +23,7 @@ public class ArrowControll : MonoBehaviour
 
     private void Awake()
     {
-        if (GameObject.FindGameObjectWithTag("Player") != null) 
-        {
-            _manoloAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-        }
+        if (GameObject.FindGameObjectWithTag("Player") != null) _manoloAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         arrowSpawnObj = GameObject.Find("SpawnArrow2").GetComponent<ArrowSpawn>();
         soundManager = GameObject.Find("AudioManager").GetComponent<SoundManager>();

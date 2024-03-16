@@ -41,22 +41,16 @@ public class SoundManager : MonoBehaviour
     public List<AudioSource> audioSources;
 
 
-    private void Awake()
-    {
-        slider = GameObject.Find("SliderAudio").GetComponent<Slider>();
-    }
+    private void Awake() => slider = GameObject.Find("SliderAudio").GetComponent<Slider>();
+
     private void Start()
     {
         DetectAllVolum();
         slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumenData");
         if(SceneManager.GetActiveScene().name == "Game") StartCoroutine(PlaySusi());
-
-
     }
-    private void Update()
-    {
-        ChangeAllVolum();
-    }
+
+    private void Update() => ChangeAllVolum();
 
     IEnumerator PlaySusi()
     {

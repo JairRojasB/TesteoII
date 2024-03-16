@@ -26,18 +26,18 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer[] lights;
 
     public int score;
+    public int maxScore;
     public int endThis = 0;
 
     public TextMeshProUGUI TxtMessage, TxtScore;
     public Button btnBack;
 
+    public Animator genteAnim;
+
     private string lose1;
     private string exito1;
 
-    public Animator genteAnim;
     public bool fullPublic = false;
-    public int maxScore;
-
     private bool camShaking = false;
 
     private void Awake() {
@@ -50,51 +50,31 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Game1")
-        {
-            maxScore = 300;
-        }
-        else if (SceneManager.GetActiveScene().name == "Game2")
-        {
-            maxScore = 500;
-        }
+        if (SceneManager.GetActiveScene().name == "Game1") maxScore = 300;
+        else if (SceneManager.GetActiveScene().name == "Game2") maxScore = 500;
 
         Instantiate(kapibaraPrefb, new Vector3(0, 0, 0), Quaternion.identity);
 
         TxtMessage.DOFade(0, 0.1f);
         TxtScore.DOFade(0, 0.1f);
+
         TxtMessage.gameObject.SetActive(false);
         TxtScore.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(false);
+
+        if (GameObject.FindGameObjectWithTag("TimeBar") != null) maxScore = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>().scoreGoal;
     }
 
     private void Update()
-    {
-        if (GameObject.FindGameObjectWithTag("TimeBar") != null) 
-        {
-            maxScore = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>().scoreGoal;
-        }
-                
-        if (score >= 150) 
-        {
-            genteAnim.SetBool("MidPublic", true);
-        }
-        else
-        {
-            genteAnim.SetBool("MidPublic", false);
-        }
+    {                
+        if (score >= 150) genteAnim.SetBool("MidPublic", true);
+        else genteAnim.SetBool("MidPublic", false);
 
-        if (score >= maxScore)
-        {
-            genteAnim.SetBool("FullPublic", true);
-        }
-        else
-        {
-            genteAnim.SetBool("FullPublic", false);
-        }
+        if (score >= maxScore) genteAnim.SetBool("FullPublic", true);
+        else genteAnim.SetBool("FullPublic", false);
 
-        if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
-        else return;
+        //if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
+        //else return;
     }    
 
     public void StarThisGame(bool esta)
@@ -118,12 +98,12 @@ public class GameManager : MonoBehaviour
         timer.d = 0;
         timer.gameObject.SetActive(true);
         arrowSpawn.gameObject.SetActive(true);
-        
     }
 
     public void ShakeCamera()
     {
         camShaking = true;
+        
         Camera.main.DOShakeRotation(1,5,5,5).OnComplete(()=> { Camera.main.transform.position = new Vector3(0, 0, -10); camShaking = false; });
     }
 
@@ -138,7 +118,7 @@ public class GameManager : MonoBehaviour
         score -= 25;
         _txtScore.text = score.ToString();
         
-        if(!camShaking) ShakeCamera();
+        if(camShaking == false) ShakeCamera();
     }
 
     public void HappyPublic()

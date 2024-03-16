@@ -103,8 +103,6 @@ public class ArrowControll : MonoBehaviour
                 soundManager.PlaySelecctedListener(true);
                 arrowSpawnObj.nImage = 0;
                 arrowSpawnObj.ResetGame();
-
-
             }
 
             arrowSpawnObj.fail = false;

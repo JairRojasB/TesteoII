@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public bool fullPublic = false;
     public int maxScore;
 
+    private bool camShaking = false;
+
     private void Awake() {
         StarThisGame(false);
 
@@ -91,10 +93,7 @@ public class GameManager : MonoBehaviour
             genteAnim.SetBool("FullPublic", false);
         }
 
-        if (Camera.main.transform.position != new Vector3(0, 0, -10))
-        {
-            Camera.main.transform.position = new Vector3(0, 0, -10);
-        }
+        if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
         else return;
     }    
 
@@ -124,7 +123,8 @@ public class GameManager : MonoBehaviour
 
     public void ShakeCamera()
     {
-        Camera.main.DOShakeRotation(1,5,5,5).OnComplete(()=> { Camera.main.transform.position = new Vector3(0, 0, -10); });
+        camShaking = true;
+        Camera.main.DOShakeRotation(1,5,5,5).OnComplete(()=> { Camera.main.transform.position = new Vector3(0, 0, -10); camShaking = false; });
     }
 
     public void AddScore()
@@ -137,7 +137,8 @@ public class GameManager : MonoBehaviour
     {
         score -= 25;
         _txtScore.text = score.ToString();
-        ShakeCamera();
+        
+        if(!camShaking) ShakeCamera();
     }
 
     public void HappyPublic()

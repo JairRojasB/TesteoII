@@ -11,7 +11,6 @@ public class SliderController : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         soundManager = GameObject.FindObjectOfType<SoundManager>();
     }
 

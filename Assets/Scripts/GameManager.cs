@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public Cortina cortina;
     
     [Space]
-    public SpriteRenderer[] lights;
+    //public SpriteRenderer[] lights;
 
     public int score;
     public int maxScore;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TxtMessage, TxtScore;
     public Button btnBack;
 
-    public Animator genteAnim;
+    //public Animator genteAnim;
 
     private string lose1;
     private string exito1;

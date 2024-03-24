@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public TimerBar timer;
     public ArrowSpawn arrowSpawn;
 
-    public GameObject[] people;
+    //public GameObject[] people;
     public Cortina cortina;
     
     [Space]
@@ -67,15 +67,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {                
-        if (score >= 150) genteAnim.SetBool("MidPublic", true);
-        else genteAnim.SetBool("MidPublic", false);
+        //if (score >= 150) genteAnim.SetBool("MidPublic", true);
+        //else genteAnim.SetBool("MidPublic", false);
 
-        if (score >= maxScore) genteAnim.SetBool("FullPublic", true);
-        else genteAnim.SetBool("FullPublic", false);
+        //if (score >= maxScore) genteAnim.SetBool("FullPublic", true);
+        //else genteAnim.SetBool("FullPublic", false);
 
         //if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
         //else return;
-    }    
+    }
+
+    public void IsIncreisingPeople()
+    {
+
+    }
 
     public void StarThisGame(bool esta)
     {
@@ -123,10 +128,10 @@ public class GameManager : MonoBehaviour
 
     public void HappyPublic()
     {
-        for (int i = 0; i < people.Length; i++)
+        /*for (int i = 0; i < people.Length; i++)
         {
             people[i].GetComponent<Animator>().SetInteger("Happy", 2);
-        }
+        }*/
 
         if(endThis == 0)
         {
@@ -145,10 +150,10 @@ public class GameManager : MonoBehaviour
 
     public void FurriusPeople()
     {
-        for (int i = 0; i < people.Length; i++)
+        /*for (int i = 0; i < people.Length; i++)
         {
             people[i].GetComponent<Animator>().SetInteger("Sad", 1);
-        }
+        }*/
 
         if (endThis == 0)
         {

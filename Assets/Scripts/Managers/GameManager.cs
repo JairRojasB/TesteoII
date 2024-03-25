@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //INIT GAME ----------------------------------------------------------------------------------------------------
+
     public void StarThisGame(bool esta)
     {
         TxtMessage.gameObject.SetActive(false);
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+    //RESET GAME ----------------------------------------------------------------------------------------------------
     public void RestarGame()
     {
         score = 0;
@@ -105,13 +108,9 @@ public class GameManager : MonoBehaviour
         arrowSpawn.gameObject.SetActive(true);
     }
 
-    public void ShakeCamera()
-    {
-        camShaking = true;
-        
-        Camera.main.DOShakeRotation(1,5,5,5).OnComplete(()=> { Camera.main.transform.position = new Vector3(0, 0, -10); camShaking = false; });
-    }
 
+
+    //SCORE ----------------------------------------------------------------------------------------------------
     public void AddScore()
     {
         score += 5;
@@ -126,6 +125,7 @@ public class GameManager : MonoBehaviour
         if(camShaking == false) ShakeCamera();
     }
 
+    //PEOPLE CONTROL ----------------------------------------------------------------------------------------------------
     public void HappyPublic()
     {
         /*for (int i = 0; i < people.Length; i++)
@@ -171,14 +171,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //RESET SCENE ----------------------------------------------------------------------------------------------------
     public void ReloadGame()
     {
         if(SceneManager.GetActiveScene().name == "Game1") SceneManager.LoadScene("Game2");
         else if(SceneManager.GetActiveScene().name == "Game2") SceneManager.LoadScene("Menu");
     }
 
+    //ENDING ----------------------------------------------------------------------------------------------------
     IEnumerator ShowingText()
     {
+        arrowSpawn.fail = true;
+
         yield return new WaitForSeconds(2);
 
         cortina.CloseTelon();
@@ -199,5 +203,13 @@ public class GameManager : MonoBehaviour
 
         TxtMessage.DOFade(1, 1);
         TxtScore.DOFade(1, 1);
+    }
+
+    //CAMERA SHAKE ----------------------------------------------------------------------------------------------------
+    public void ShakeCamera()
+    {
+        camShaking = true;
+
+        Camera.main.DOShakeRotation(1, 5, 5, 5).OnComplete(() => { Camera.main.transform.position = new Vector3(0, 0, -10); camShaking = false; });
     }
 }

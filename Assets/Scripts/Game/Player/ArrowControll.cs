@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class ArrowControll : MonoBehaviour
 {
@@ -42,22 +43,22 @@ public class ArrowControll : MonoBehaviour
 
             case ARROWSTATE.PRESSING:
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && arrowSpawnObj.fail == false)
                 {
                     pressValue = 0;
                     AreCorrect();
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && arrowSpawnObj.fail == false)
                 {
                     pressValue = 1;
                     AreCorrect();
                 }
-                else if (Input.GetKeyDown(KeyCode.UpArrow))
+                else if (Input.GetKeyDown(KeyCode.UpArrow) && arrowSpawnObj.fail == false)
                 {
                     pressValue = 2;
                     AreCorrect();
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow) && arrowSpawnObj.fail == false)
                 {
                     pressValue = 3;
                     AreCorrect();
@@ -74,8 +75,11 @@ public class ArrowControll : MonoBehaviour
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
 
+        this.gameObject.transform.DOScale(0.01f, 0.8f).OnComplete(() => this.gameObject.transform.DOScale(1f, 0.8f).OnComplete(() => arrowSpawnObj.fail = false));
+
         for (int i = 0; i < ArrowIcons.Length; i++)
         {
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[i]) AIValue = i;
         }
     }
@@ -102,7 +106,6 @@ public class ArrowControll : MonoBehaviour
                 arrowSpawnObj.ResetGame();
             }
 
-            arrowSpawnObj.fail = false;
             soundManager.KeySounds(true);
             arrowSpawnObj.NextArrow();
 
@@ -112,6 +115,8 @@ public class ArrowControll : MonoBehaviour
         else
         {
             InitState();
+
+            arrowSpawnObj.fail = true;
 
             _manoloAnim.SetBool("Fail", true);
             soundManager.PlaySelecctedListener(false);

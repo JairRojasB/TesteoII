@@ -22,13 +22,8 @@ public class ArrowSpawn : MonoBehaviour
             {
                 GameObject temp = Instantiate(arrowPrefb, transform);
                 images.Add(this.transform.GetChild(i).gameObject);
-
             }
-            else
-            {
-                images.Add(this.transform.GetChild(i).gameObject);
-            }
-            
+            else images.Add(this.transform.GetChild(i).gameObject);
         }
     }
     private void Start() => StartingGame();
@@ -40,10 +35,7 @@ public class ArrowSpawn : MonoBehaviour
         ActiveOne(nImage);
     }
 
-    public void NextArrow()
-    {
-        ActiveArrows(nImage);
-    }
+    public void NextArrow() => ActiveArrows(nImage);
 
     public void ActiveOne(int n)
     {
@@ -67,18 +59,14 @@ public class ArrowSpawn : MonoBehaviour
 
     public void ResetGame()
     {
-
         nImage = 0;
 
         for (int i = 0; i < images.Count; i++)
         {
-            InitBehavior();
             images[i].SetActive(true);
             images[i].GetComponent<ArrowControll>().RandomArrow();
             ActiveOne(nImage);
         }
-
-        fail = false;
     }
 
     //Subir un elemento de la lista NO TOCAR
@@ -91,10 +79,9 @@ public class ArrowSpawn : MonoBehaviour
         {
             images[i].GetComponent<SpriteRenderer>().color = Color.white;
             images[i].transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            if (i >= 1)
-            {
-                images[i].transform.position = images[i - 1].transform.position + new Vector3(1.3f, 0);
-            }
+            images[i].transform.DOScale(1f, 1f);
+
+            if (i >= 1) images[i].transform.position = images[i - 1].transform.position + new Vector3(1.3f, 0);
         }
 
         AnimIcon();
@@ -104,7 +91,7 @@ public class ArrowSpawn : MonoBehaviour
     {
         for (int i = 0; i < images.Count; i++)
         {
-            images[i].transform.DOScale(1, 0.5f).SetEase(Ease.InOutElastic);
+            images[i].transform.DOScale(1, 0.5f).SetEase(Ease.InOutElastic).OnComplete(()=> fail = false);
             images[i].GetComponent<ArrowControll>().ChangeState();
         }
     }

@@ -4,7 +4,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+
 public class GameManager : MonoBehaviour
 {
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private string lose1;
     private string exito1;
 
-    public bool fullPublic = false;
+    //public bool fullPublic = false;
     private bool camShaking = false;
 
     private void Awake() {

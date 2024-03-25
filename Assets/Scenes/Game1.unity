@@ -1150,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &293584879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,11 +1442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596309, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596309, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9087263696068596314, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_Color.b
@@ -4319,11 +4319,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 732767549746608024, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 732767549746608024, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4091497170322642183, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4427,15 +4427,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8273508726409491736, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8273508726409491736, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8273508726409491736, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96036f8ff8d036b4ea98dc06aacaa4b5, type: 3}
@@ -6190,7 +6190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.69, y: 2.42}
+  m_AnchoredPosition: {x: 0, y: 2.42}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1905459792 stripped

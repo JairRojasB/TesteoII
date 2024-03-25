@@ -846,8 +846,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 75.8, y: -483}
-  m_SizeDelta: {x: 513.5, y: 617.8}
+  m_AnchoredPosition: {x: 0, y: -487}
+  m_SizeDelta: {x: 840, y: 525}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &779175763
 MonoBehaviour:
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb6ee4f6125595e44bd1fdcac63cb411, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a6fbefe488188a4ea27e85258d97a97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b396451766f0b9b41afd40678525e021, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e79fc0876edd2dd428f9984fb1a54b56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1446,11 +1446,11 @@ MonoBehaviour:
   soundManager: {fileID: 1096259633}
   BG: {fileID: 903603507}
   bgAnim:
-  - {fileID: 21300000, guid: 0bd5c5320f341ca47a93a800ead49b54, type: 3}
-  - {fileID: 21300000, guid: b396451766f0b9b41afd40678525e021, type: 3}
+  - {fileID: 21300000, guid: e79fc0876edd2dd428f9984fb1a54b56, type: 3}
+  - {fileID: 21300000, guid: e79fc0876edd2dd428f9984fb1a54b56, type: 3}
   doorSprites:
-  - {fileID: 21300000, guid: 9865c25b735748e4faf7a04bfc30ac2c, type: 3}
-  - {fileID: 21300000, guid: eb6ee4f6125595e44bd1fdcac63cb411, type: 3}
+  - {fileID: 21300000, guid: 7a6fbefe488188a4ea27e85258d97a97, type: 3}
+  - {fileID: 21300000, guid: 7a6fbefe488188a4ea27e85258d97a97, type: 3}
   maImg:
   - {fileID: 21300000, guid: d590a6338e9fbda44b8a0d88c13ccbd0, type: 3}
   - {fileID: 21300000, guid: de47e2f5ec6e62045a6cf863cfad468e, type: 3}

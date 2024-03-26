@@ -68,19 +68,9 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("TimeBar") != null) maxScore = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>().scoreGoal;
     }
 
-    private void Update()
-    {   
-        IsIncreisingPeople();
-        //if (score >= 150) genteAnim.SetBool("MidPublic", true);
-        //else genteAnim.SetBool("MidPublic", false);
+    private void Update() => IsIncreisingPeople();
 
-        //if (score >= maxScore) genteAnim.SetBool("FullPublic", true);
-        //else genteAnim.SetBool("FullPublic", false);
-
-        //if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
-        //else return;
-    }
-
+    //PROPLE BEHAVIOR ----------------------------------------------------------------------------------------------------
     public void IsIncreisingPeople()
     {
         if (score <30)
@@ -112,7 +102,6 @@ public class GameManager : MonoBehaviour
     }
 
     //INIT GAME ----------------------------------------------------------------------------------------------------
-
     public void StarThisGame(bool esta)
     {
         TxtMessage.gameObject.SetActive(false);

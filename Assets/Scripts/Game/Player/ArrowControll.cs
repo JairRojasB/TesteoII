@@ -73,14 +73,19 @@ public class ArrowControll : MonoBehaviour
 
     public void RandomArrow()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
 
-        this.gameObject.transform.DOScale(0.01f, 0.8f).OnComplete(() => this.gameObject.transform.DOScale(1f, 0.8f).OnComplete(() => arrowSpawnObj.fail = false));
+        this.gameObject.transform.DOScale(0.01f, 0.8f).OnComplete(() => ChangeArrows());
 
-        for (int i = 0; i < ArrowIcons.Length; i++)
+
+        void ChangeArrows()
         {
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-            if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[i]) AIValue = i;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = ArrowIcons[Random.Range(0, ArrowIcons.Length)];
+            this.gameObject.transform.DOScale(1f, 0.8f).OnComplete(() => arrowSpawnObj.fail = false);
+            for (int i = 0; i < ArrowIcons.Length; i++)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                if (this.gameObject.GetComponent<SpriteRenderer>().sprite == ArrowIcons[i]) AIValue = i;
+            }
         }
     }
 

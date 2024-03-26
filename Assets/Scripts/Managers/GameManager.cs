@@ -76,9 +76,14 @@ public class GameManager : MonoBehaviour
     {
         if (score < 30)
         {
-            level1[0].SetActive(true);
-            level2[0].SetActive(false);
-
+            for (int i = 0; i < level1.Length; i++)
+            {
+                level1[i].SetActive(true);
+            }
+            for (int i = 0; i < level2.Length; i++)
+            {
+                level2[i].SetActive(false);
+            }
             for (int i = 0; i < level3.Length; i++)
             {
                 level3[i].SetActive(false);
@@ -86,8 +91,10 @@ public class GameManager : MonoBehaviour
         }
         else if (score >= 30 && score < 90)
         {
-            level2[0].SetActive(true);
-
+            for (int i = 0; i < level2.Length; i++)
+            {
+                level2[i].SetActive(true);
+            }
             for (int i = 0; i < level3.Length; i++)
             {
                 level3[i].SetActive(false);

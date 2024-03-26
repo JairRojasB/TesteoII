@@ -3145,11 +3145,11 @@ PrefabInstance:
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2035376890}
     - target: {fileID: 9087263694488440588, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: soundManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1216006499}
     - target: {fileID: 9087263694488440589, guid: 7ee220d4f15a2084889cf355bdb22bf5, type: 3}
       propertyPath: m_Value
       value: 0.544
@@ -5874,6 +5874,22 @@ MonoBehaviour:
   _txtScore: {fileID: 1239612338}
   corgiPrefb: {fileID: 7215182964077530735, guid: 3c54499160656514cbd07dfefd850679, type: 3}
   kapibaraPrefb: {fileID: 6667245329307388349, guid: 2924a6f29ed15ae4aa7dc4c6c438603a, type: 3}
+  level1:
+  - {fileID: 1613761668}
+  - {fileID: 230482691}
+  - {fileID: 2019223036}
+  - {fileID: 1229077391}
+  level2:
+  - {fileID: 1327701540}
+  - {fileID: 279710450}
+  - {fileID: 507105875}
+  - {fileID: 645733821}
+  level3:
+  - {fileID: 197389257}
+  - {fileID: 1773641805}
+  - {fileID: 1380659667}
+  - {fileID: 978743672}
+  - {fileID: 1503900032}
   timer: {fileID: 1824360451}
   arrowSpawn: {fileID: 1882916724}
   cortina: {fileID: 1610113619}

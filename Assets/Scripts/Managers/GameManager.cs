@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject corgiPrefb;
     [SerializeField] private GameObject kapibaraPrefb;
 
+    //People per table
+    [SerializeField] private GameObject[] level1, level2, level3;
+
     //public PermaData permaData;
 
     public TimerBar timer;
@@ -21,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     //public GameObject[] people;
     public Cortina cortina;
-    
+
     [Space]
     //public SpriteRenderer[] lights;
 
@@ -40,7 +43,8 @@ public class GameManager : MonoBehaviour
     //public bool fullPublic = false;
     private bool camShaking = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         StarThisGame(false);
 
         lose1 = "Este es tu #1er intento. Trata de no cagarla";
@@ -65,25 +69,40 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("TimeBar") != null) maxScore = GameObject.FindGameObjectWithTag("TimeBar").GetComponent<TimerBar>().scoreGoal;
     }
 
-    private void Update()
-    {                
-        //if (score >= 150) genteAnim.SetBool("MidPublic", true);
-        //else genteAnim.SetBool("MidPublic", false);
+    private void Update() => IsIncreisingPeople();
 
-        //if (score >= maxScore) genteAnim.SetBool("FullPublic", true);
-        //else genteAnim.SetBool("FullPublic", false);
-
-        //if (Camera.main.transform.position != new Vector3(0, 0, -10)) Camera.main.transform.position = new Vector3(0, 0, -10);
-        //else return;
-    }
-
+    //PROPLE BEHAVIOR ----------------------------------------------------------------------------------------------------
     public void IsIncreisingPeople()
     {
+        if (score < 30)
+        {
+            level1[0].SetActive(true);
+            level2[0].SetActive(false);
 
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(false);
+            }
+        }
+        else if (score >= 30 && score < 90)
+        {
+            level2[0].SetActive(true);
+
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(false);
+            }
+        }
+        else if (score >= 90)
+        {
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(true);
+            }
+        }
     }
 
     //INIT GAME ----------------------------------------------------------------------------------------------------
-
     public void StarThisGame(bool esta)
     {
         TxtMessage.gameObject.SetActive(false);
@@ -121,8 +140,8 @@ public class GameManager : MonoBehaviour
     {
         score -= 25;
         _txtScore.text = score.ToString();
-        
-        if(camShaking == false) ShakeCamera();
+
+        if (camShaking == false) ShakeCamera();
     }
 
     //PEOPLE CONTROL ----------------------------------------------------------------------------------------------------
@@ -133,9 +152,9 @@ public class GameManager : MonoBehaviour
             people[i].GetComponent<Animator>().SetInteger("Happy", 2);
         }*/
 
-        if(endThis == 0)
+        if (endThis == 0)
         {
-            if(SceneManager.GetActiveScene().name == "Game1")
+            if (SceneManager.GetActiveScene().name == "Game1")
             {
                 TxtMessage.text = exito1;
                 StartCoroutine(ShowingText());
@@ -143,7 +162,7 @@ public class GameManager : MonoBehaviour
 
             DOTween.KillAll();
             cortina.CloseTelon();
-            
+
             endThis = 1;
         }
     }
@@ -174,8 +193,8 @@ public class GameManager : MonoBehaviour
     //RESET SCENE ----------------------------------------------------------------------------------------------------
     public void ReloadGame()
     {
-        if(SceneManager.GetActiveScene().name == "Game1") SceneManager.LoadScene("Game2");
-        else if(SceneManager.GetActiveScene().name == "Game2") SceneManager.LoadScene("Menu");
+        if (SceneManager.GetActiveScene().name == "Game1") SceneManager.LoadScene("Game2");
+        else if (SceneManager.GetActiveScene().name == "Game2") SceneManager.LoadScene("Menu");
     }
 
     //ENDING ----------------------------------------------------------------------------------------------------
@@ -193,7 +212,7 @@ public class GameManager : MonoBehaviour
         TxtScore.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(false);
 
-        yield  return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3);
 
         TxtMessage.gameObject.SetActive(true);
         TxtScore.gameObject.SetActive(true);

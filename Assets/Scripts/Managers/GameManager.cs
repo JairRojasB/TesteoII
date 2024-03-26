@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject corgiPrefb;
     [SerializeField] private GameObject kapibaraPrefb;
 
+    //People per table
+    [SerializeField] private GameObject[] level1, level2, level3;
+
     //public PermaData permaData;
 
     public TimerBar timer;
@@ -66,7 +69,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {                
+    {   
+        IsIncreisingPeople();
         //if (score >= 150) genteAnim.SetBool("MidPublic", true);
         //else genteAnim.SetBool("MidPublic", false);
 
@@ -79,7 +83,32 @@ public class GameManager : MonoBehaviour
 
     public void IsIncreisingPeople()
     {
+        if (score <30)
+        {
+            level1[0].SetActive(true);
+            level2[0].SetActive(false);
 
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(false);
+            }
+        }
+        else if(score >= 30 && score <90)
+        {
+            level2[0].SetActive(true);
+
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(false);
+            }
+        }
+        else if(score >= 90)
+        {
+            for (int i = 0; i < level3.Length; i++)
+            {
+                level3[i].SetActive(true);
+            }
+        }
     }
 
     //INIT GAME ----------------------------------------------------------------------------------------------------
